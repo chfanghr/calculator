@@ -4,7 +4,7 @@
 
 #include "history.h"
 
-#include <exception>
+#include <stdexcept>
 
 std::deque<double> kResHistory;
 
