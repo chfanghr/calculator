@@ -1,5 +1,5 @@
 # Calculator
-This is a calculator which compiles a expression to vm bytecode and execute it. <br>
+This is a calculator which compiles a expression to vm bytecode then execute it. <br>
 Here is an example:
 ```cpp
 #include "compute/compute.h"
@@ -14,6 +14,8 @@ auto main() -> int {
 	std::cout << Evaluate("abs(1.12334)") << std::endl;
 	std::cout << Evaluate("1.45*44%3") << std::endl;
 	std::cout << Evaluate("(1+4)/cos(3.1415926)") << std::endl;
+	std::cout << Evaluate("@+1") << std::endl;
+	std::cout << Evaluate("@@+1") << std::endl;
 	return EXIT_SUCCESS;
 }
 ```
@@ -26,4 +28,6 @@ Run it, you will see:
 1.12334
 0.8
 -5
+-4
+-4
 ```
