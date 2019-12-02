@@ -4,6 +4,8 @@
 
 #include "history.h"
 
+#include <exception>
+
 std::deque<double> kResHistory;
 
 auto ClearHistory() -> void {
