@@ -7,6 +7,21 @@ You can use calc in two ways: shell mode and command.
 
 ### Shell mode
 This is probably the mode you'll want to use. It's like the python shell or irb.
+```
+> 1+1
+2
+> 3(5/(3-4))
+-15
+> 3pi^2
+29.608813203268074
+> @+1
+30.608813203268074
+> @@@*2
+-30
+> ln(-1)
+NaN
+Command
+```
 
 ### Command
 You can also use calc to evaluate an expression with just a single command (i.e. without opening the shell). To do this, just use `calc [expression]`:
