@@ -115,9 +115,9 @@ auto Shell(const std::string &prompt) -> int {
 			auto res = engine.Evaluate(buf);
 			printf("%s = %f\n", buf, res);
 		} catch (const std::runtime_error &re) {
-			printf("Cannot evaluate %s: %s", buf, re.what());
+			printf("Cannot evaluate %s: %s\n", buf, re.what());
 		}
-		
+
 		// readline malloc'd the buffer; clean it up.
 		free(buf);
 	}
