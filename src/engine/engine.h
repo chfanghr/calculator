@@ -5,8 +5,9 @@
 #ifndef CALCULATOR__ENGINE_H_
 #define CALCULATOR__ENGINE_H_
 
-#include "compute/token/token.h"
-#include "compute/stack.h"
+#include "src/compute/token/token.h"
+#include "src/compute/stack.h"
+#include "src/version.h"
 
 #include <cstdint>
 #include <string>
@@ -83,6 +84,10 @@ class Engine {
 	auto EvalOp(const std::string &op_name, compute::utils::Stack<double> &floats) const -> void;
  private:
 	[[nodiscard]] auto Eval(const std::string &in) const -> double;
+ public:
+	static auto Version() -> std::string;
 };
+
+auto Version() -> std::string;
 }
 #endif //CALCULATOR__ENGINE_H_

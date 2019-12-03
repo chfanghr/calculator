@@ -47,4 +47,12 @@ auto Engine::GetConstant(const std::string &name) const noexcept(false) -> doubl
 		throw std::runtime_error(std::string("No such constant: ") + name);
 	return constants_.at(name);
 }
+
+auto Engine::Version() -> std::string {
+	return std::string(GIT_BRANCH) + ":" + std::string(GIT_REV) + ":" + std::string(GIT_TAG);
+}
+
+auto Version() -> std::string {
+	return Engine::Version();
+}
 }

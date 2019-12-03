@@ -33,3 +33,4 @@
 *.out
 *.app
 
+_version.cc

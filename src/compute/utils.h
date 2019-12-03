@@ -5,8 +5,8 @@
 #ifndef CALCULATOR_COMPUTE_UTILS_H_
 #define CALCULATOR_COMPUTE_UTILS_H_
 
-#include "engine.h"
-#include "token/token.h"
+#include "src/engine/engine.h"
+#include "src/compute/token/token.h"
 #include "stack.h"
 
 namespace calculator::compute::utils {

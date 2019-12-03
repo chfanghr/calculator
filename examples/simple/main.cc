@@ -1,9 +1,14 @@
-#include "engine.h"
+//
+// Created by 方泓睿 on 2019/12/3.
+//
+
+#include <engine/engine.h>
 
 #include <iostream>
 
 auto main() -> int {
 	auto engine = calculator::Engine();
+
 	std::cout << engine.Evaluate("1+1") << std::endl;
 	std::cout << engine.Evaluate("1*3+2") << std::endl;
 	std::cout << engine.Evaluate("0+9/3") << std::endl;
