@@ -16,6 +16,13 @@ IF (CODE_COVERAGE AND CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
 	ADD_LINK_OPTIONS(--coverage)
 ENDIF ()
 
+IF (BUILD_TESTING)
+	ENABLE_TESTING()
+	FIND_PACKAGE(GTest REQUIRED)
+	FIND_PACKAGE(Threads REQUIRED)
+	INCLUDE_DIRECTORIES(${GTEST_INCLUDE_DIRS})
+ENDIF ()
+
 ADD_LIBRARY(
 		standard_operators OBJECT src/operators/operators.h src/operators/standard.cc
 		src/operators/operators.cc)
