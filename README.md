@@ -1,26 +1,22 @@
 # Calculator
 This is a calculator which compiles a expression to vm bytecode then execute it. <br>
-Here is an example:
-```cpp
-#include "compute/compute.h"
-
-#include <iostream>
-
-auto main() -> int {
-	std::cout << Evaluate("1+1") << std::endl;
-	std::cout << Evaluate("1*3+2") << std::endl;
-	std::cout << Evaluate("0+9/3") << std::endl;
-	std::cout << Evaluate("(1+3)/2") << std::endl;
-	std::cout << Evaluate("abs(1.12334)") << std::endl;
-	std::cout << Evaluate("1.45*44%3") << std::endl;
-	std::cout << Evaluate("(1+4)/cos(3.1415926)") << std::endl;
-	std::cout << Evaluate("@+1") << std::endl;
-	std::cout << Evaluate("@@+1") << std::endl;
-	return EXIT_SUCCESS;
-}
-```
-Run it, you will see:
+Note that this project is still at beta stage.
+## Build examples
 ```bash
+mkdir build
+cd build
+cmake ..
+make -j8
+```
+The examples will be built by default, you will see them in your build folder.<br>
+Execute the [`simple`](examples/simple/simple.cc) example as below:
+```bash
+# In your build folder ....
+examples/simple
+``` 
+You'll see
+```
+❯ examples/simple
 2
 5
 3
@@ -31,3 +27,8 @@ Run it, you will see:
 -4
 -4
 ```
+## TODO
+-[ ] Uint Tests
+-[ ] API Document
+-[ ] More Example
+-[ ] Cli Application
