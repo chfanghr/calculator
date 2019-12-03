@@ -8,7 +8,7 @@ Note That although this library is a cpp library, it provides an **untested** C-
  your own!) .
  
  ### Operators
- `+`,`-`, `*`, `/`, `^`, `%`
+ `+`, `-`, `*`, `/`, `^`, `%`
  
  ### Functions
  `sin`, `cos`, `tan`, `cot`, `sec`, `csc`, `asin`, `acos`, `atan`, `acot`, `asec`, `acsc`, `sqrt`, `log`, `lg`, `ln`, `abs`
