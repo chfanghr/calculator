@@ -16,7 +16,7 @@ Note That although this library is a cpp library, it provides an **untested** C-
  `e`, `pi`
  
  ### History
- Previous results can be accessed with the `@` symbol. A single `@` returns the result of the last computation, while multiple @ gets the nth last result, where n is the number of `@`s used (for example, `@@` returns the second-last result, `@@@@@` returns the fifth-last result).
+ Previous results can be accessed with the `@` symbol. A single `@` returns the result of the last computation, while multiple `@` gets the nth last result, where n is the number of `@`s used (for example, `@@` returns the second-last result, `@@@@@` returns the fifth-last result).
  
 ## Requirements
 This library requires **C++17** to build, including compiler and standard library support. <br>
