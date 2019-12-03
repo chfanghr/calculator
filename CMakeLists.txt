@@ -45,6 +45,8 @@ ADD_LIBRARY(compute OBJECT src/compute/compute.cc src/compute/stack.h
 ADD_LIBRARY(engine OBJECT src/engine/engine.cc src/engine/engine.h
 			src/engine/register.cc src/engine/history.cc)
 
+ADD_LIBRARY(c_api OBJECT src/c_api/c_api.h src/c_api/c_api.cc)
+
 ADD_LIBRARY(library_version OBJECT src/version.h _version.cc)
 
 ADD_LIBRARY(
@@ -56,6 +58,7 @@ ADD_LIBRARY(
 		src/compute/stack.h
 		src/compute/utils.h
 		src/engine/engine.h
+		src/c_api/c_api.h
 		include/calculator.h
 		$<TARGET_OBJECTS:standard_operators>
 		$<TARGET_OBJECTS:standard_functions>
@@ -63,7 +66,10 @@ ADD_LIBRARY(
 		$<TARGET_OBJECTS:token>
 		$<TARGET_OBJECTS:compute>
 		$<TARGET_OBJECTS:library_version>
-		$<TARGET_OBJECTS:engine>)
+		$<TARGET_OBJECTS:engine>
+		$<TARGET_OBJECTS:c_api>
+)
 
 ADD_SUBDIRECTORY(examples)
 ADD_SUBDIRECTORY(tests)
+ADD_SUBDIRECTORY(cmd/calc)
