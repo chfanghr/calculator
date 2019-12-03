@@ -52,6 +52,18 @@ auto Engine::Version() -> std::string {
 	return std::string(GIT_BRANCH) + ":" + std::string(GIT_REV) + ":" + std::string(GIT_TAG);
 }
 
+[[nodiscard]] auto Engine::Functions() const noexcept -> const std::set<std::string> & {
+	return functions_;
+}
+
+[[nodiscard]] auto Engine::Constatnts() const noexcept -> const std::map<std::string, double> & {
+	return constants_;
+}
+
+[[nodiscard]] auto Engine::Operators() const noexcept -> const std::map<std::string, Operator> & {
+	return operators_;
+}
+
 auto Version() -> std::string {
 	return Engine::Version();
 }
