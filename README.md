@@ -32,4 +32,4 @@ You'll see
 - [ ] API Document
 - [ ] More Examples
 - [ ] Full Fill README
-- [ ] Cli Application
+- [ ] CLI Application
