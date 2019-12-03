@@ -41,7 +41,7 @@ If you want to build tests(which is enable by default), you should also install 
 cmake -H. -Bbuild
 cmake --build build
 ```
-This will create a `build` folder in the project root.
+This will create a `build` folder in the project root, and build the project inside it.
 
 If you don't want to build tests, replace the first command with:
 ```bash
