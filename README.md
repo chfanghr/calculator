@@ -65,7 +65,7 @@ Execute the [`simple`](examples/simple/simple.cc) example as below:
 ```bash
 cd build
 examples/simple
-example/version
+examples/version
 ``` 
 You'll see
 ```
