@@ -30,5 +30,6 @@ You'll see
 ## TODO
 -[ ] Uint Tests
 -[ ] API Document
--[ ] More Example
+-[ ] More Examples
+-[ ] Full Fill README
 -[ ] Cli Application
