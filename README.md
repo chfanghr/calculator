@@ -28,15 +28,23 @@ So the following minimum versions will be required to build the library:
 * Clang 5
 * VS 2017 15.3
 
-And also the `cmake` and `make` tools:
+...And the `cmake` and `make` tools:
 * cmake 3.1.0
 * make 4.0.0
+
+If you want to build tests(which is enable by default), you should also install Google Test framework on your machine.
+ 
 ## Build
 ```bash
 cmake -H. -Bbuild
 cmake --build build
 ```
 This will create a `build` folder in the project root.
+
+If you don't want to build tests, replace the first command with:
+```bash
+cmake -DBUILD_TESTING=OFFF -H. -Bbuild
+``` 
 
 ## Tests
 The tests will be built by default. To run it(for now there is only one test, more tests will be added soon ):
