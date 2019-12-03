@@ -1,5 +1,5 @@
 # Calculator [![CircleCI](https://circleci.com/gh/chfanghr/calculator.svg?style=svg)](https://circleci.com/gh/chfanghr/calculator)
-This is a **Zero Dependency** library which compiles an expression to **VM bytecode** then execute it. <br>
+`calculator` is a **Zero Dependency** library which compiles an expression to **VM bytecode** then execute it. <br>
 Note That although this library is a cpp library, it provides an **untested** C-api. Just have a try :P.
 
 ## Features: Support standard functions, operators, and constants
