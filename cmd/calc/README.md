@@ -30,7 +30,6 @@ This is probably the mode you'll want to use. It's like the python shell or irb.
 -30
 > ln(-1)
 NaN
-Command
 ```
 
 ### Command
