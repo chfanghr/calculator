@@ -11,15 +11,16 @@ auto EvaluateAndShow(calculator::Engine &engine, const std::string &expression) 
 }
 
 auto main() -> int {
-	EvaluateAndShow(calculator::Instance, "1+1");
-	EvaluateAndShow(calculator::Instance, "1*3+2");
-	EvaluateAndShow(calculator::Instance, "0+9/3");
-	EvaluateAndShow(calculator::Instance, "(1+3)/2");
-	EvaluateAndShow(calculator::Instance, "abs(-1.12334)");
-	EvaluateAndShow(calculator::Instance, "1.45*44%3");
-	EvaluateAndShow(calculator::Instance, "(1+4)/cos(3.1415926)");
-	EvaluateAndShow(calculator::Instance, "@+1");
-	EvaluateAndShow(calculator::Instance, "@@+1");
-	EvaluateAndShow(calculator::Instance, "acos(1)*@");
+	calculator::Engine engine;
+	EvaluateAndShow(engine, "1+1");
+	EvaluateAndShow(engine, "1*3+2");
+	EvaluateAndShow(engine, "0+9/3");
+	EvaluateAndShow(engine, "(1+3)/2");
+	EvaluateAndShow(engine, "abs(-1.12334)");
+	EvaluateAndShow(engine, "1.45*44%3");
+	EvaluateAndShow(engine, "(1+4)/cos(3.1415926)");
+	EvaluateAndShow(engine, "@+1");
+	EvaluateAndShow(engine, "@@+1");
+	EvaluateAndShow(engine, "acos(1)*@");
 	return EXIT_SUCCESS;
 }
