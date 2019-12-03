@@ -65,15 +65,16 @@ example/version
 You'll see
 ```
 ❯ examples/simple
-2
-5
-3
-2
-1.12334
-0.8
--5
--4
--4
+1+1=2
+1*3+2=5
+0+9/3=3
+(1+3)/2=2
+abs(-1.12334)=1.12334
+1.45*44%3=0.8
+(1+4)/cos(3.1415926)=-5
+@+1=-4
+@@+1=-4
+acos(1)*@=-0
 ❯ examples/version
 version = master:3268dc9+: # Or something else...
 ```

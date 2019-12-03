@@ -55,4 +55,6 @@ auto Engine::Version() -> std::string {
 auto Version() -> std::string {
 	return Engine::Version();
 }
+
+Engine Instance = Engine();
 }

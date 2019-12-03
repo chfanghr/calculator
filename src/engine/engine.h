@@ -90,5 +90,7 @@ class Engine {
 };
 
 auto Version() -> std::string;
+
+extern Engine Instance;
 }
 #endif //CALCULATOR__ENGINE_H_
