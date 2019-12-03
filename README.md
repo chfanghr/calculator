@@ -1,7 +1,7 @@
 # Calculator [![CircleCI](https://circleci.com/gh/chfanghr/calculator.svg?style=svg)](https://circleci.com/gh/chfanghr/calculator)
 `calculator` is a **Zero Dependency** **c++17** library which compiles an expression to **VM bytecode** then evaluate
  it effectively. <br>
-Note That although this library is a cpp library, it provides an **untested** C-api. Just have a try :P.
+Note That although this library is a cpp library, it provides an **untested** C-API interface. Just have a try :P.
 
 ## Features: Support standard functions, operators, and constants
 `calculator` supports all the standard stuff, and I'm definitely adding more later (also feel free to fork and add
