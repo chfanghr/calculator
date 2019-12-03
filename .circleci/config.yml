@@ -7,7 +7,7 @@ jobs:
     steps:
       - checkout
       - run: 'apt update && apt upgrade -y && apt install -y sudo'
-      - run: 'sudo apt install -y gcc g++ cmake make'
+      - run: 'sudo apt install -y gcc g++ cmake make googletest googletest-tools'
       - run: 'cmake -H. -Bbuild'
       - run: 'cmake --build build'
       - run: 'examples/simple'
