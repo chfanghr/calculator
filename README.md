@@ -1,4 +1,4 @@
-# Calculator
+# Calculator [![CircleCI](https://circleci.com/gh/chfanghr/calculator.svg?style=svg)](https://circleci.com/gh/chfanghr/calculator)
 This is a calculator which compiles a expression to vm bytecode then execute it. <br>
 Note that this project is still at beta stage.
 ## Build examples
