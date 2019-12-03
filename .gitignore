@@ -34,3 +34,6 @@
 *.app
 
 _version.cc
+
+key/*
+key
