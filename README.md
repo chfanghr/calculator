@@ -23,6 +23,19 @@ make test
 ## or
 tests/*tests
 ```
+You'll see:
+```
+❯ make test
+Running tests...
+Test project /Users/fanghr/CLionProjects/calculator/cmake-build-debug
+    Start 1: CALCULATOR_TESTS
+1/1 Test #1: CALCULATOR_TESTS .................   Passed    1.13 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   1.15 sec
+```
+
 ## Examples
 The examples will be built by default, you will see them in your build folder.<br>
 Execute the [`simple`](examples/simple/simple.cc) example as below:
