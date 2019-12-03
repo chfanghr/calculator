@@ -9,3 +9,5 @@ class CalculatorTestGroup : public testing::Test {
  public:
 	calculator::Engine engine_;
 };
+
+TEST_F(CalculatorTestGroup, PlaceHolder) {}
