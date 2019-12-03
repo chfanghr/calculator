@@ -3,7 +3,7 @@
 with high speed and low memory cost. 
 To achieve this, I implemented an engine which compiles math expressions 
 to **VM bytecode** so that the expressions can be evaluated effectively. <br>
-Note That although this library is a cpp library, it provides an **untested** C-API. Just have a try :P.
+Note That although this library is a cpp library, it provides **untested** C-APIs. Just have a try :P.
 
 ## Features: Support standard functions, operators, and constants
 `calculator` supports all the standard stuff, and I'm definitely adding more later (also feel free to fork and add
