@@ -29,7 +29,7 @@ This library requires **C++17** to build, including compiler and standard librar
 So the following minimum versions will be required to build the library:
 * GCC 7
 * Clang 5
-* VS 2017 15.3
+* VS 2017 15.3 (technically, I don't know )
 
 ...And the `cmake` and `make` tools:
 * cmake 3.1.0
