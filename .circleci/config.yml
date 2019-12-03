@@ -1,0 +1,14 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: "ubuntu:18.04"
+    steps:
+      - checkout
+      - run: 'apt update && apt upgrade -y && apt install -y sudo'
+      - run: 'sudo apt install -y gcc g++ cmake make'
+      - run: 'cmake -H. -Bbuild'
+      - run: 'cmake --build build'
+      - run: 'examples/simple'
+      - run: 'examples/version'
