@@ -18,5 +18,6 @@ auto main() -> int {
 	std::cout << engine.Evaluate("(1+4)/cos(3.1415926)") << std::endl;
 	std::cout << engine.Evaluate("@+1") << std::endl;
 	std::cout << engine.Evaluate("@@+1") << std::endl;
+	std::cout << engine.Evaluate("acos(1)") << std::endl;
 	return EXIT_SUCCESS;
 }

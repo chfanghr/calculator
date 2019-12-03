@@ -95,7 +95,8 @@ const Operator kAcos = Operator{
 		1,
 		[](const std::valarray<double> &argv) -> double {
 			return std::acos(argv[0]);
-		}
+		},
+		Operator::Type::kFunction,
 };
 
 const Operator kAtan = Operator{

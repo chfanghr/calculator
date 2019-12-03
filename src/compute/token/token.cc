@@ -18,7 +18,8 @@ std::map<Token, std::string> kTokens{ // NOLINT(cert-err58-cpp)
 		{Token::kSub, "-"},
 		{Token::kMul, "*"},
 		{Token::kDiv, "/"},
-		{Token::kMod, "%"}
+		{Token::kMod, "%"},
+		{Token::kCaret, "^"},
 };
 
 auto ToString(Token tok) noexcept -> std::string {
@@ -44,6 +45,7 @@ auto Scanner::Scan() -> std::tuple<size_t, Token, std::string> {
 		case '%': return std::make_tuple(pos_++, Token::kMod, "%");
 		case '(': return std::make_tuple(pos_++, Token::kLParen, "(");
 		case ')': return std::make_tuple(pos_++, Token::kRParen, ")");
+		case '^': return std::make_tuple(pos_++, Token::kCaret, "^");
 		default: return std::make_tuple(pos_++, Token::kIllegal, std::string() + cur_ch);
 	}
 }

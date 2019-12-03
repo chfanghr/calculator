@@ -32,6 +32,8 @@ enum class Token : int32_t {
 	kInt,
 
 	kIdent,
+
+	kCaret,
 };
 
 auto ToString(Token tok) noexcept -> std::string;

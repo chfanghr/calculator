@@ -28,7 +28,7 @@ You'll see
 -4
 ```
 ## TODO
-- [ ] Uint Tests
+- [ ] More Uint Tests
 - [ ] API Document
 - [ ] More Examples
 - [ ] Full Fill README

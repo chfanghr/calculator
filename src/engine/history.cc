@@ -22,6 +22,8 @@ auto Engine::PushHistory(double res) noexcept -> void {
 }
 
 auto Engine::GetHistory(size_t idx) const -> double {
+	if (idx >= history_.size())
+		throw std::runtime_error(std::string("Invalid history reference ") + std::to_string(idx));
 	return history_[idx];
 }
 
