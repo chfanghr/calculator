@@ -78,7 +78,7 @@ You'll see
 version = master:3268dc9+: # Or something else...
 ```
 
-## CLI App: `cloc`
+## CLI App: `calc`
 In progress, check out [calc](cmd/calc/README.md)
 
 ## TODO
