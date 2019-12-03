@@ -15,3 +15,4 @@ jobs:
       - run: 'cmake --build build'
       - run: 'build/examples/simple'
       - run: 'build/examples/version'
+      - run: 'build/tests/calculator_tests'
