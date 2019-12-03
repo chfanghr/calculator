@@ -2,56 +2,60 @@
 // Created by 方泓睿 on 2019/12/2.
 //
 
-#include "compute.h"
 #include "utils.h"
-#include "history.h"
 #include "stack.h"
 
-auto Evaluate(const std::string &in) -> double {
+namespace calculator {
+auto Engine::Eval(const std::string &in) const -> double {
+	using namespace compute::utils;
+	using namespace compute::token;
+
 	auto    floats = Stack<double>();
 	auto    ops    = Stack<std::string>();
 	auto    s      = Scanner(in);
 	auto    prev   = Token::kIllegal;
 	int64_t back   = -1;
+
 	for (;;) {
 		auto[pos, tok, lit]=s.Scan();
-		if (lit != "@" && back > -1 && !kResHistory.empty()) {
+		if (lit != "@" && back > -1 && !history_.empty()) {
 			floats.Push(GetHistory(back));
-			if (prev == Token::kRParen || IsConstant(TokenToString(prev)))
+			if (prev == Token::kRParen || IsConstant(ToString(prev)))
 				EvalUnprecedenced("*", ops, floats);
 			back = -1;
 		}
 		if (tok == Token::kEOF)break;
-		else if (lit == "@")back += 1;
+		else if (lit == "@")
+			back += 1;
 		else if (IsConstant(lit)) {
-			floats.Push(GetConstantValue(lit).value());
+			floats.Push(GetConstant(lit));
 			if (prev == Token::kRParen || IsOperand(prev))
 				EvalUnprecedenced("*", ops, floats);
 		} else if (IsOperand(tok)) {
 			floats.Push(ParseFloat(lit));
-			if (prev == Token::kRParen || IsConstant(TokenToString(prev)))
+			if (prev == Token::kRParen || IsConstant(ToString(prev)))
 				EvalUnprecedenced("*", ops, floats);
 		} else if (IsFunction(lit)) {
 			if (IsOperand(prev) || prev == Token::kRParen)
 				EvalUnprecedenced("*", ops, floats);
 			ops.Push(lit);
-		} else if (IsOperator(TokenToString(tok))) {
-			auto op = TokenToString(tok);
+		} else if (IsOperator(ToString(tok))) {
+			auto op = ToString(tok);
 			if (IsNegation(tok, prev))
 				op = "neg";
 			EvalUnprecedenced(op, ops, floats);
 		} else if (tok == Token::kLParen) {
 			if (IsOperand(prev))
 				EvalUnprecedenced("*", ops, floats);
-			ops.Push(TokenToString(tok));
+			ops.Push(ToString(tok));
 		} else if (tok == Token::kRParen) {
 			while (ops && ops.SafeTop() != "(")
 				EvalOp(ops.SafePop(), floats);
 			ops.Pop();
-			if (ops && IsFunction(ops.SafePop()))
+			if (ops && IsFunction(ops.SafeTop()))
 				EvalOp(ops.SafePop(), floats);
 		} else {
-			auto inspect = TokenToString(tok);
+			auto inspect = ToString(tok);
 			if (!TrimSpace(lit).empty())
 				inspect += " (`" + lit + "`)";
 			throw std::runtime_error(std::string("Unrecognized token ") + inspect + " in expression.");
@@ -60,7 +64,16 @@ auto Evaluate(const std::string &in) -> double {
 	}
 	while (ops)
 		EvalOp(ops.SafePop(), floats);
-	auto res = floats.Top();
+	return floats.Top();
+}
+
+auto Engine::Evaluate(const std::string &in) -> double {
+	auto res = Eval(in);
 	PushHistory(res);
 	return res;
+}
+
+auto Engine::Evaluate(const std::string &in) const -> double {
+	return Eval(in);
+}
 }

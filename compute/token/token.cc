@@ -5,7 +5,7 @@
 #include "token.h"
 
 #include <utility>
-
+namespace calculator::compute::token {
 std::map<Token, std::string> kTokens{ // NOLINT(cert-err58-cpp)
 		{Token::kIllegal, "ILLEGAL"},
 		{Token::kEOF, "EOF"},
@@ -21,16 +21,16 @@ std::map<Token, std::string> kTokens{ // NOLINT(cert-err58-cpp)
 		{Token::kMod, "%"}
 };
 
-auto TokenToString(Token tok) -> std::string {
+auto ToString(Token tok) noexcept -> std::string {
 	return kTokens[tok];
 }
 
-Scanner::Scanner(std::string in) : in_(std::move(in)), pos_(0) {}
+Scanner::Scanner(std::string in) noexcept : in_(std::move(in)), pos_(0) {}
 
 auto Scanner::Scan() -> std::tuple<size_t, Token, std::string> {
 	SkipWhiteSpaces();
 	if (pos_ >= in_.size())
-		return std::make_tuple(pos_, Token::kEOF, TokenToString(Token::kEOF));
+		return std::make_tuple(pos_, Token::kEOF, ToString(Token::kEOF));
 	auto cur_ch = in_[pos_];
 	switch (cur_ch) {
 		case 'a' ... 'z':
@@ -100,5 +100,5 @@ auto Scanner::ReadNumber() -> std::tuple<size_t, Token, std::string> {
 	}
 	return std::make_tuple(pos, type, lit);
 }
-
+}
 

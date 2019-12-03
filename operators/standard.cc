@@ -9,60 +9,66 @@
 
 #include <cmath>
 
-auto kAdd = Operator{
+namespace calculator::operators::standard {
+const auto kAdd = Operator{
 		"+",
 		1,
-		AssociativityType::L,
+		Operator::AssociativityType::L,
 		2,
 		[](const std::valarray<double> &argv) -> double {
 			return argv[0] + argv[1];
-		}
+		},
+		Operator::Type::kOperator,
 };
 
-auto kSub = Operator{
+const auto kSub = Operator{
 		"-",
 		1,
-		AssociativityType::L,
+		Operator::AssociativityType::L,
 		2,
 		[](const std::valarray<double> &argv) -> double {
 			return argv[0] - argv[1];
-		}
+		},
+		Operator::Type::kOperator,
 };
 
-auto kNeg = Operator{
+const auto kNeg = Operator{
 		"neg",
 		2,
-		AssociativityType::L,
+		Operator::AssociativityType::L,
 		1,
 		[](const std::valarray<double> &argv) -> double {
 			return 0 - argv[0];
-		}
+		},
+		Operator::Type::kOperator,
 };
 
-auto kMul = Operator{
+const auto kMul = Operator{
 		"*",
 		2,
-		AssociativityType::L,
+		Operator::AssociativityType::L,
 		2,
 		[](const std::valarray<double> &argv) -> double {
 			return argv[0] * argv[1];
-		}
+		},
+		Operator::Type::kOperator,
 };
 
-auto kDiv = Operator{
+const auto kDiv = Operator{
 		"/",
 		2,
-		AssociativityType::L,
+		Operator::AssociativityType::L,
 		2,
 		[](const std::valarray<double> &argv) -> double {
 			return argv[0] / argv[1];
-		}
+		},
+		Operator::Type::kOperator,
 };
 
-auto kMod = Operator{
+const auto kMod = Operator{
 		"%",
 		2,
-		AssociativityType::L,
+		Operator::AssociativityType::L,
 		2,
 		[](const std::valarray<double> &argv) -> double {
 			auto l_op = argv[0];
@@ -81,27 +87,20 @@ auto kMod = Operator{
 
 			// Sign of result typically depends on sign of l_op.
 			return mod * (l_op < 0 ? -1 : 1);
-		}
+		},
+		Operator::Type::kOperator,
 };
 
-auto kPow = Operator{
+const auto kPow = Operator{
 		"^",
 		3,
-		AssociativityType::R,
+		Operator::AssociativityType::R,
 		2,
 		[](const std::valarray<double> &argv) -> double {
 			return std::pow(argv[0], argv[1]);
-		}
+		},
+		Operator::Type::kOperator,
 };
-
-auto RegisterStandardOperators() -> void {
-	RegisterOperator(kAdd);
-	RegisterOperator(kSub);
-	RegisterOperator(kNeg);
-	RegisterOperator(kMul);
-	RegisterOperator(kMod);
-	RegisterOperator(kDiv);
-	RegisterOperator(kPow);
 }
 
 #pragma clang diagnostic pop

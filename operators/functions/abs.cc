@@ -9,17 +9,17 @@
 
 #include <cmath>
 
-auto kAbs = Operator{
+namespace calculator::operators::functions::standard {
+const auto kAbs = Operator{
 		"abs",
 		0,
-		AssociativityType::L,
+		Operator::AssociativityType::L,
 		1,
 		[](const std::valarray<double> &argv) -> double {
 			return std::abs(argv[0]);
-		}
+		},
+		Operator::Type::kFunction,
 };
-
-auto RegisterAbsFunction() -> void {
-	RegisterFunction(kAbs);
 }
+
 #pragma clang diagnostic pop

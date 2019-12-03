@@ -8,6 +8,7 @@
 #include <stack>
 #include <stdexcept>
 
+namespace calculator::compute::utils {
 template<typename T>
 class Stack : public std::stack<T> {
  public:
@@ -22,7 +23,7 @@ class Stack : public std::stack<T> {
 		return res;
 	}
 
-	auto SafePop() -> T {
+	auto SafePop() noexcept -> T {
 		if (!*this)
 			return {};
 		T res = this->top();
@@ -40,7 +41,7 @@ class Stack : public std::stack<T> {
 		return this->top();
 	}
 
-	[[nodiscard]]auto SafeTop() const -> T {
+	[[nodiscard]]auto SafeTop() const noexcept -> T {
 		if (!*this)
 			return {};
 		return this->top();
@@ -58,9 +59,9 @@ class Stack : public std::stack<T> {
 		return this->top();
 	}
 
-	explicit operator bool() const {
+	explicit operator bool() const noexcept {
 		return !this->empty();
 	}
 };
-
+}
 #endif //CALCULATOR_COMPUTE_STACK_H_

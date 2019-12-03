@@ -9,139 +9,137 @@
 
 #include <cmath>
 
-auto kSin = Operator{
+namespace calculator::operators::functions::standard {
+const auto kSin = Operator{
 		"sin",
 		0,
-		AssociativityType::L,
+		Operator::AssociativityType::L,
 		1,
 		[](const std::valarray<double> &argv) -> double {
 			return std::sin(argv[0]);
-		}
+		},
+		Operator::Type::kFunction,
 };
 
-auto kCos = Operator{
+const auto kCos = Operator{
 		"cos",
 		0,
-		AssociativityType::L,
+		Operator::AssociativityType::L,
 		1,
 		[](const std::valarray<double> &argv) -> double {
 			return std::cos(argv[0]);
-		}
+		},
+		Operator::Type::kFunction,
 };
 
-auto kTan = Operator{
+const auto kTan = Operator{
 		"tan",
 		0,
-		AssociativityType::L,
+		Operator::AssociativityType::L,
 		1,
 		[](const std::valarray<double> &argv) -> double {
 			return std::tan(argv[0]);
-		}
+		},
+		Operator::Type::kFunction,
 };
 
-auto kCot = Operator{
+const auto kCot = Operator{
 		"cot",
 		0,
-		AssociativityType::L,
+		Operator::AssociativityType::L,
 		1,
 		[](const std::valarray<double> &argv) -> double {
 			return 1 / std::tan(argv[0]);
-		}
+		},
+		Operator::Type::kFunction,
 };
 
-auto kSec = Operator{
+const auto kSec = Operator{
 		"sec",
 		0,
-		AssociativityType::L,
+		Operator::AssociativityType::L,
 		1,
 		[](const std::valarray<double> &argv) -> double {
 			return 1 / std::cos(argv[0]);
-		}
+		},
+		Operator::Type::kFunction,
 };
 
-auto kCsc = Operator{
+const auto kCsc = Operator{
 		"csc",
 		0,
-		AssociativityType::L,
+		Operator::AssociativityType::L,
 		1,
 		[](const std::valarray<double> &argv) -> double {
 			return 1 / std::sin(argv[0]);
-		}
+		},
+		Operator::Type::kFunction,
 };
 
-auto kAsin = Operator{
+const auto kAsin = Operator{
 		"asin",
 		0,
-		AssociativityType::L,
+		Operator::AssociativityType::L,
 		1,
 		[](const std::valarray<double> &argv) -> double {
 			return std::asin(argv[0]);
-		}
+		},
+		Operator::Type::kFunction,
 };
 
-auto kAcos = Operator{
+const auto kAcos = Operator{
 		"acos",
 		0,
-		AssociativityType::L,
+		Operator::AssociativityType::L,
 		1,
 		[](const std::valarray<double> &argv) -> double {
 			return std::acos(argv[0]);
 		}
 };
 
-auto kAtan = Operator{
+const auto kAtan = Operator{
 		"atan",
 		0,
-		AssociativityType::L,
+		Operator::AssociativityType::L,
 		1,
 		[](const std::valarray<double> &argv) -> double {
 			return std::atan(argv[0]);
-		}
+		},
+		Operator::Type::kFunction,
 };
 
-auto kAcot = Operator{
+const auto kAcot = Operator{
 		"acot",
 		0,
-		AssociativityType::L,
+		Operator::AssociativityType::L,
 		1,
 		[](const std::valarray<double> &argv) -> double {
 			return (-90 * ((M_PI * std::atan(argv[0]) / 90) - M_PI)) / M_PI;
-		}
+		},
+		Operator::Type::kFunction,
 };
 
-auto kAsec = Operator{
+const auto kAsec = Operator{
 		"asec",
 		0,
-		AssociativityType::L,
+		Operator::AssociativityType::L,
 		1,
 		[](const std::valarray<double> &argv) -> double {
 			return std::acos(1 / argv[0]);
-		}
+		},
+		Operator::Type::kFunction,
 };
 
-auto kAcsc = Operator{
+const auto kAcsc = Operator{
 		"acsc",
 		0,
-		AssociativityType::L,
+		Operator::AssociativityType::L,
 		1,
 		[](const std::valarray<double> &argv) -> double {
 			return std::asin(1 / argv[0]);
-		}
+		},
+		Operator::Type::kFunction,
 };
-
-auto RegisterTrigFunctions() -> void {
-	RegisterFunction(kSin);
-	RegisterFunction(kCos);
-	RegisterFunction(kTan);
-	RegisterFunction(kCot);
-	RegisterFunction(kSec);
-	RegisterFunction(kCsc);
-	RegisterFunction(kAsin);
-	RegisterFunction(kAcos);
-	RegisterFunction(kAtan);
-	RegisterFunction(kAcot);
-	RegisterFunction(kAsec);
-	RegisterFunction(kAcsc);
 }
 
 #pragma clang diagnostic pop

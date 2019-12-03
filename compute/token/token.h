@@ -14,6 +14,7 @@
 #include <tuple>
 #include <map>
 
+namespace calculator::compute::token {
 enum class Token : int32_t {
 	kIllegal = 0,
 	kEOF,
@@ -33,14 +34,14 @@ enum class Token : int32_t {
 	kIdent,
 };
 
-auto TokenToString(Token tok) -> std::string;
+auto ToString(Token tok) noexcept -> std::string;
 
 class Scanner {
  private:
 	std::string in_;
 	size_t      pos_;
  public:
-	explicit Scanner(std::string in);
+	explicit Scanner(std::string in) noexcept;
 
 	auto Scan() -> std::tuple<size_t, Token, std::string>;
  private:
@@ -50,6 +51,6 @@ class Scanner {
 };
 
 extern std::map<Token, std::string> kTokens;
-
+}
 #endif //CALCULATOR_COMPUTE_TOKEN_TOKEN_H_
 #pragma clang diagnostic pop

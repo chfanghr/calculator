@@ -3,22 +3,27 @@
 //
 
 #include "functions.h"
-#include "registers.h"
 
-std::set<std::string> kFunctions{};
-
-auto RegisterFunction(const Operator &an_operator) -> void {
-	RegisterOperator(an_operator);
-	kFunctions.insert(an_operator.name);
+namespace calculator {
+auto Engine::RegisterStandardFunctions() noexcept -> void {
+	using namespace operators::functions::standard;
+	Register(kAbs);
+	Register(kLog);
+	Register(kLn);
+	Register(kLg);
+	Register(kSqrt);
+	Register(kSin);
+	Register(kCos);
+	Register(kTan);
+	Register(kCot);
+	Register(kSec);
+	Register(kCsc);
+	Register(kAsin);
+	Register(kAcos);
+	Register(kAtan);
+	Register(kAcot);
+	Register(kSec);
+	Register(kAsec);
+	Register(kAcsc);
 }
-
-auto IsFunctionExists(const std::string &name) -> bool {
-	return kFunctions.find(name) != kFunctions.end();
-}
-
-auto RegisterAllFunctions() -> void {
-	RegisterAbsFunction();
-	RegisterLogFunctions();
-	RegisterSqrtFunction();
-	RegisterTrigFunctions();
 }

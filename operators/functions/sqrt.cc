@@ -9,18 +9,17 @@
 
 #include <cmath>
 
-auto kSqrt = Operator{
+namespace calculator::operators::functions::standard {
+const auto kSqrt = Operator{
 		"sqrt",
 		0,
-		AssociativityType::L,
+		Operator::AssociativityType::L,
 		1,
 		[](const std::valarray<double> &argv) -> double {
 			return std::sqrt(argv[0]);
-		}
+		},
+		Operator::Type::kFunction
 };
-
-auto RegisterSqrtFunction() -> void {
-	RegisterFunction(kSqrt);
 }
 
 #pragma clang diagnostic pop

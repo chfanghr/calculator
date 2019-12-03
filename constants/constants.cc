@@ -1,21 +1,13 @@
 //
-// Created by 方泓睿 on 2019/12/2.
+// Created by 方泓睿 on 2019/12/3.
 //
 
 #include "constants.h"
 
-std::map<std::string, double> kConstants{};
-
-auto RegisterConstant(const Constant &constant) -> void {
-	kConstants[constant.name] = constant.value;
+namespace calculator {
+auto Engine::RegisterStandardConstants() noexcept -> void {
+	using namespace constants::standard;
+	Register(kE);
+	Register(kPI);
 }
-
-auto IsConstantExists(const std::string &name) -> bool {
-	return kConstants.find(name) != kConstants.end();
-}
-
-auto GetConstantValue(const std::string &name) -> std::optional<double> {
-	if (IsConstantExists(name))
-		return kConstants[name];
-	return {};
 }

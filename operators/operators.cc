@@ -1,32 +1,19 @@
 //
-// Created by 方泓睿 on 2019/12/1.
+// Created by 方泓睿 on 2019/12/3.
 //
 
+#include "engine.h"
 #include "operators.h"
-#include "functions/registers.h"
-#include "registers.h"
 
-std::map<std::string, Operator> kOperations{};
-
-auto RegisterOperator(const Operator &an_operator) -> void {
-	kOperations[an_operator.name] = an_operator;
+namespace calculator {
+auto Engine::RegisterStandardOperators() noexcept -> void {
+	using namespace operators::standard;
+	Register(kAdd);
+	Register(kSub);
+	Register(kNeg);
+	Register(kMul);
+	Register(kDiv);
+	Register(kMod);
+	Register(kPow);
 }
-
-auto IsOperatorExists(const std::string &name) -> bool {
-	return kOperations.find(name) != kOperations.end();
 }
-
-auto GetOperator(const std::string &name) -> std::optional<Operator> {
-	if (IsOperatorExists(name))
-		return kOperations[name];
-	return {};
-}
-
-auto RegisterAllOperators() -> void {
-	RegisterStandardOperators();
-}
-
-auto InitOperators() -> void {
-	RegisterAllFunctions();
-	RegisterAllOperators();
-};

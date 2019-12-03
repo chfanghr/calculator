@@ -2,19 +2,20 @@
 // Created by 方泓睿 on 2019/12/2.
 //
 
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "cert-err58-cpp"
+
 #include "constants.h"
 
 #include <cmath>
 
-auto kE = Constant{
+namespace calculator::constants::standard {
+const auto kE = Constant{
 		"e", M_E
 };
 
-auto kPI = Constant{
+const auto kPI = Constant{
 		"pi", M_PI
 };
-
-auto RegisterStandardConstants() -> void {
-	RegisterConstant(kE);
-	RegisterConstant(kPI);
 }
+#pragma clang diagnostic pop

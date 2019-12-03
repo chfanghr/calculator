@@ -9,40 +9,38 @@
 
 #include <cmath>
 
-auto kLog = Operator{
+namespace calculator::operators::functions::standard {
+const auto kLog = Operator{
 		"log",
 		0,
-		AssociativityType::L,
+		Operator::AssociativityType::L,
 		1,
 		[](const std::valarray<double> &argv) -> double {
 			return std::log10(argv[0]);
-		}
+		},
+		Operator::Type::kFunction,
 };
 
-auto kLn = Operator{
+const auto kLn = Operator{
 		"ln",
 		0,
-		AssociativityType::L,
+		Operator::AssociativityType::L,
 		1,
 		[](const std::valarray<double> &argv) -> double {
 			return std::log(argv[0]);
-		}
+		},
+		Operator::Type::kFunction,
 };
 
-auto kLg = Operator{
+const auto kLg = Operator{
 		"lg",
 		0,
-		AssociativityType::L,
+		Operator::AssociativityType::L,
 		1,
 		[](const std::valarray<double> &argv) -> double {
 			return std::log2(argv[0]);
-		}
+		},
+		Operator::Type::kFunction,
 };
-
-auto RegisterLogFunctions() -> void {
-	RegisterFunction(kLog);
-	RegisterFunction(kLn);
-	RegisterFunction(kLg);
 }
-
 #pragma clang diagnostic pop

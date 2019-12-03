@@ -7,12 +7,25 @@
 
 #include "operators/operators.h"
 
-#include <set>
-
-auto RegisterFunction(const Operator &) -> void;
-
-auto IsFunctionExists(const std::string &name) -> bool;
-
-extern std::set<std::string> kFunctions;
+namespace calculator::operators::functions::standard {
+using Operator=Engine::Operator;
+const extern Operator kAbs;
+const extern Operator kLog;
+const extern Operator kLn;
+const extern Operator kLg;
+const extern Operator kSqrt;
+const extern Operator kSin;
+const extern Operator kCos;
+const extern Operator kTan;
+const extern Operator kCot;
+const extern Operator kSec;
+const extern Operator kCsc;
+const extern Operator kAsin;
+const extern Operator kAcos;
+const extern Operator kAtan;
+const extern Operator kAcot;
+const extern Operator kAsec;
+const extern Operator kAcsc;
+}
 
 #endif //CALCULATOR_OPERATORS_FUNCTIONS_FUNCTIONS_H_
