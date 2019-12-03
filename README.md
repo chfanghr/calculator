@@ -28,8 +28,8 @@ You'll see
 -4
 ```
 ## TODO
--[ ] Uint Tests
--[ ] API Document
--[ ] More Examples
--[ ] Full Fill README
--[ ] Cli Application
+- [ ] Uint Tests
+- [ ] API Document
+- [ ] More Examples
+- [ ] Full Fill README
+- [ ] Cli Application
