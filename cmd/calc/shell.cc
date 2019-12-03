@@ -111,9 +111,13 @@ auto Shell(const std::string &prompt) -> int {
 			add_history(buf);
 		}
 
-		auto res = engine.Evaluate(buf);
-		printf("%s = %f\n", buf, res);
-
+		try {
+			auto res = engine.Evaluate(buf);
+			printf("%s = %f\n", buf, res);
+		} catch (const std::runtime_error &re) {
+			printf("Cannot evaluate %s: %s", buf, re.what());
+		}
+		
 		// readline malloc'd the buffer; clean it up.
 		free(buf);
 	}
