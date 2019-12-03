@@ -1,8 +1,9 @@
 # Calculator [![CircleCI](https://circleci.com/gh/chfanghr/calculator.svg?style=svg)](https://circleci.com/gh/chfanghr/calculator)
-This is a calculator which compiles an expression to vm bytecode then execute it. <br>
+This is a **Zero Dependency** calculator which compiles an expression to **VM bytecode** then execute it. <br>
+Note That although this library is a cpp library, it provides an **untested** C-api. Just have a try :P.
 
 ## Requirements
-This library requires C++17 to build, including compiler and standard library support. <br>
+This library requires **C++17** to build, including compiler and standard library support. <br>
 So the following minimum versions will be required to build the library:
 * GCC 7
 * Clang 5
