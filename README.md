@@ -2,7 +2,8 @@
 `calculator` is a **Zero Dependency** **C++17** library. Frankly, the purpose of this library is to evaluate any common math expression 
 with high speed and low memory cost. 
 To achieve this, I implemented an engine which compiles math expressions 
-to **VM bytecode** so that the expressions can be evaluated effectively. <br>
+to **VM bytecode** so that the expressions can be evaluated in VM effectively. <br>
+
 Note That although this library is a cpp library, it provides **untested** C-APIs. Just have a try :P.
 
 ## Features: Support standard functions, operators, and constants
