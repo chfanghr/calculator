@@ -27,7 +27,7 @@ auto IsOperator(const std::string &literal) -> bool {
 }
 
 auto IsNegation(const Token &tok, const Token &prev) -> bool {
-	return tok == Token::kSub && (prev == Token::kIllegal || IsOperator(TokenToString(prev)) || prev == Token::kRParen);
+	return tok == Token::kSub && (prev == Token::kIllegal || IsOperator(TokenToString(prev)) || prev == Token::kLParen);
 }
 
 auto ParseFloat(const std::string &literal) -> double {
