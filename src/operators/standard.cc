@@ -10,7 +10,7 @@
 #include <cmath>
 
 namespace calculator::operators::standard {
-const auto kAdd = Operator{
+const Operator kAdd = Operator{
 		"+",
 		1,
 		Operator::AssociativityType::L,
@@ -21,7 +21,7 @@ const auto kAdd = Operator{
 		Operator::Type::kOperator,
 };
 
-const auto kSub = Operator{
+const Operator kSub = Operator{
 		"-",
 		1,
 		Operator::AssociativityType::L,
@@ -32,7 +32,7 @@ const auto kSub = Operator{
 		Operator::Type::kOperator,
 };
 
-const auto kNeg = Operator{
+const Operator kNeg = Operator{
 		"neg",
 		2,
 		Operator::AssociativityType::L,
@@ -43,7 +43,7 @@ const auto kNeg = Operator{
 		Operator::Type::kOperator,
 };
 
-const auto kMul = Operator{
+const Operator kMul = Operator{
 		"*",
 		2,
 		Operator::AssociativityType::L,
@@ -54,7 +54,7 @@ const auto kMul = Operator{
 		Operator::Type::kOperator,
 };
 
-const auto kDiv = Operator{
+const Operator kDiv = Operator{
 		"/",
 		2,
 		Operator::AssociativityType::L,
@@ -65,7 +65,7 @@ const auto kDiv = Operator{
 		Operator::Type::kOperator,
 };
 
-const auto kMod = Operator{
+const Operator kMod = Operator{
 		"%",
 		2,
 		Operator::AssociativityType::L,
@@ -91,7 +91,7 @@ const auto kMod = Operator{
 		Operator::Type::kOperator,
 };
 
-const auto kPow = Operator{
+const Operator kPow = Operator{
 		"^",
 		3,
 		Operator::AssociativityType::R,

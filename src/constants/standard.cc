@@ -10,11 +10,11 @@
 #include <cmath>
 
 namespace calculator::constants::standard {
-const auto kE = Constant{
+const Constant kE = Constant{
 		"e", M_E
 };
 
-const auto kPI = Constant{
+const Constant kPI = Constant{
 		"pi", M_PI
 };
 }

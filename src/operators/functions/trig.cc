@@ -10,7 +10,7 @@
 #include <cmath>
 
 namespace calculator::operators::functions::standard {
-const auto kSin = Operator{
+const Operator kSin = Operator{
 		"sin",
 		0,
 		Operator::AssociativityType::L,
@@ -21,7 +21,7 @@ const auto kSin = Operator{
 		Operator::Type::kFunction,
 };
 
-const auto kCos = Operator{
+const Operator kCos = Operator{
 		"cos",
 		0,
 		Operator::AssociativityType::L,
@@ -32,7 +32,7 @@ const auto kCos = Operator{
 		Operator::Type::kFunction,
 };
 
-const auto kTan = Operator{
+const Operator kTan = Operator{
 		"tan",
 		0,
 		Operator::AssociativityType::L,
@@ -43,7 +43,7 @@ const auto kTan = Operator{
 		Operator::Type::kFunction,
 };
 
-const auto kCot = Operator{
+const Operator kCot = Operator{
 		"cot",
 		0,
 		Operator::AssociativityType::L,
@@ -54,7 +54,7 @@ const auto kCot = Operator{
 		Operator::Type::kFunction,
 };
 
-const auto kSec = Operator{
+const Operator kSec = Operator{
 		"sec",
 		0,
 		Operator::AssociativityType::L,
@@ -65,7 +65,7 @@ const auto kSec = Operator{
 		Operator::Type::kFunction,
 };
 
-const auto kCsc = Operator{
+const Operator kCsc = Operator{
 		"csc",
 		0,
 		Operator::AssociativityType::L,
@@ -76,7 +76,7 @@ const auto kCsc = Operator{
 		Operator::Type::kFunction,
 };
 
-const auto kAsin = Operator{
+const Operator kAsin = Operator{
 		"asin",
 		0,
 		Operator::AssociativityType::L,
@@ -87,7 +87,7 @@ const auto kAsin = Operator{
 		Operator::Type::kFunction,
 };
 
-const auto kAcos = Operator{
+const Operator kAcos = Operator{
 		"acos",
 		0,
 		Operator::AssociativityType::L,
@@ -97,7 +97,7 @@ const auto kAcos = Operator{
 		}
 };
 
-const auto kAtan = Operator{
+const Operator kAtan = Operator{
 		"atan",
 		0,
 		Operator::AssociativityType::L,
@@ -108,7 +108,7 @@ const auto kAtan = Operator{
 		Operator::Type::kFunction,
 };
 
-const auto kAcot = Operator{
+const Operator kAcot = Operator{
 		"acot",
 		0,
 		Operator::AssociativityType::L,
@@ -119,7 +119,7 @@ const auto kAcot = Operator{
 		Operator::Type::kFunction,
 };
 
-const auto kAsec = Operator{
+const Operator kAsec = Operator{
 		"asec",
 		0,
 		Operator::AssociativityType::L,
@@ -130,7 +130,7 @@ const auto kAsec = Operator{
 		Operator::Type::kFunction,
 };
 
-const auto kAcsc = Operator{
+const Operator kAcsc = Operator{
 		"acsc",
 		0,
 		Operator::AssociativityType::L,

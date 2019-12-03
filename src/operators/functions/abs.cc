@@ -10,7 +10,7 @@
 #include <cmath>
 
 namespace calculator::operators::functions::standard {
-const auto kAbs = Operator{
+const Operator kAbs = Operator{
 		"abs",
 		0,
 		Operator::AssociativityType::L,

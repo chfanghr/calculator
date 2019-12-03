@@ -8,6 +8,14 @@ SET(CMAKE_CXX_STANDARD 17)
 INCLUDE_DIRECTORIES(./)
 INCLUDE_DIRECTORIES(include)
 
+OPTION(CODE_COVERAGE "Enable coverage reporting." ON)
+OPTION(BUILD_TESTING "Build the tests." ON)
+
+IF (CODE_COVERAGE AND CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+	ADD_DEFINITIONS(-fprofile-arcs -ftest-coverage)
+	ADD_LINK_OPTIONS(--coverage)
+ENDIF ()
+
 ADD_LIBRARY(
 		standard_operators OBJECT src/operators/operators.h src/operators/standard.cc
 		src/operators/operators.cc)
@@ -51,3 +59,4 @@ ADD_LIBRARY(
 		$<TARGET_OBJECTS:engine>)
 
 ADD_SUBDIRECTORY(examples)
+ADD_SUBDIRECTORY(tests)

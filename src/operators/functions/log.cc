@@ -10,7 +10,7 @@
 #include <cmath>
 
 namespace calculator::operators::functions::standard {
-const auto kLog = Operator{
+const Operator kLog = Operator{
 		"log",
 		0,
 		Operator::AssociativityType::L,
@@ -21,7 +21,7 @@ const auto kLog = Operator{
 		Operator::Type::kFunction,
 };
 
-const auto kLn = Operator{
+const Operator kLn = Operator{
 		"ln",
 		0,
 		Operator::AssociativityType::L,
@@ -32,7 +32,7 @@ const auto kLn = Operator{
 		Operator::Type::kFunction,
 };
 
-const auto kLg = Operator{
+const Operator kLg = Operator{
 		"lg",
 		0,
 		Operator::AssociativityType::L,

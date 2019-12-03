@@ -10,7 +10,7 @@
 #include <cmath>
 
 namespace calculator::operators::functions::standard {
-const auto kSqrt = Operator{
+const Operator kSqrt = Operator{
 		"sqrt",
 		0,
 		Operator::AssociativityType::L,
