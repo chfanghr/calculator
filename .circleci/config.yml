@@ -7,7 +7,7 @@ jobs:
     steps:
       - checkout
       - run: 'apt update && apt upgrade -y && apt install -y sudo'
-      - run: 'apt install -y gcc g++ cmake make wget pkg-config'
+      - run: 'apt install -y gcc g++ cmake make wget pkg-config libreadline-dev'
       - run: 'wget https://github.com/google/googletest/archive/release-1.10.0.tar.gz -O googletest.tar.gz'
       - run: 'tar -xf googletest.tar.gz'
       - run: 'cd googletest-release-1.10.0/ && cmake . && make && make install && ldconfig'
