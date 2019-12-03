@@ -2,11 +2,21 @@
 
 A simple, fast, and intuitive command-line calculator written in cpp.
 
+## Requirements
+* Of course, `make`, `cmake`, cpp17 compiler,etc...
+* The GNU's `libreadline`
+    * If you're using osx - Then you need to do nothing. Just build it and enjoy!
+    * If you're using ubuntu(or other debian based system) - If you're facing compilation issue, try to run this
+     command in your terminal: `sudo apt install -y libreadline-dev` then have another shot. 
+     * If you are on Windows .... Oh, Sorry. You have to find yourself a solution cause the developer have no machine
+      running Windows :D.
+     
 ## Usage
 You can use calc in two ways: shell mode and command.
 
 ### Shell mode
-This is probably the mode you'll want to use. It's like the python shell or irb.
+This is probably the mode you'll want to use. It's like the python shell or irb. **THIS MODE COMES WITH AUTO
+-COMPLETION**
 ```
 > 1+1
 2

@@ -1,5 +1,6 @@
 # Calculator [![CircleCI](https://circleci.com/gh/chfanghr/calculator.svg?style=svg)](https://circleci.com/gh/chfanghr/calculator)
-`calculator` is a **Zero Dependency** library which compiles an expression to **VM bytecode** then execute it. <br>
+`calculator` is a **Zero Dependency** **c++17** library which compiles an expression to **VM bytecode** then evaluate
+ it effectively. <br>
 Note That although this library is a cpp library, it provides an **untested** C-api. Just have a try :P.
 
 ## Features: Support standard functions, operators, and constants
@@ -85,12 +86,20 @@ version = master:3268dc9+: # Or something else...
 ```
 
 ## CLI App: `calc`
-In progress, check out [calc](cmd/calc/README.md)
+**Usable but still Experimental**, check out [calc](cmd/calc/README.md)
 
 ## TODO
 - [ ] More Uint Tests
 - [ ] API Document
 - [ ] More Examples
 - [ ] Full Fill README
-- [ ] CLI Application (In progress, check out [calc](cmd/calc/README.md))
+- [ ] CLI Application (Working in progress, check out [calc](cmd/calc/README.md))
 - [ ] Benchmark
+
+## Note: When you failed to build....
+* Check if your compiler/tools meet the requirements
+* If you're on Windows.... Sorry, I cannot help you cause I have no machine running Windows...
+* Any way, feel free to open an issue, but please post the full detail%)....
+
+## LICENSE
+MIT, check [LICENSE](LICENSE) for more details.
