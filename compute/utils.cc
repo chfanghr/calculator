@@ -3,23 +3,25 @@
 //
 
 #include "utils.h"
-#include "stack.h"
 
 #include <exception>
 
-auto EvalOp(const std::string &op_name, std::stack<double> &floats) -> void {
+auto EvalOp(const std::string &op_name, Stack<double> &floats) -> void {
 	auto op_pack = GetOperator(op_name);
 	if (!op_pack)
-		throw std::runtime_error("Either unmatched paren or unrecognized operator");
+		throw std::runtime_error("Either unmatched paren or unrecognized operator.");
+
 	auto      op   = op_pack.value();
 	auto      args = std::valarray<double>(op.args);
+
 	for (auto i    = op.args - 1; i >= 0; i--) {
-		if (floats.empty())
+		if (!floats)
 			throw std::runtime_error("Not enough arguments to operator!");
-		auto arg = Pop(floats);
+		auto arg = floats.Pop();
 		args[i] = arg;
 	}
-	floats.push(op.operation(args));
+
+	floats.Push(op.operation(args));
 }
 
 auto IsOperator(const std::string &literal) -> bool {
@@ -56,10 +58,10 @@ auto ShouldPopNext(const std::string &n1, const std::string &n2) -> bool {
 	return op_1.precedence < op_2.precedence;
 }
 
-auto EvalUnprecedenced(const std::string &op, std::stack<std::string> &ops, std::stack<double> &floats) -> void {
-	while (!ops.empty() && ShouldPopNext(op, SafeTop(ops)))
-		EvalOp(SafePop(ops), floats);
-	ops.push(op);
+auto EvalUnprecedenced(const std::string &op, Stack<std::string> &ops, Stack<double> &floats) -> void {
+	while (ops && ShouldPopNext(op, ops.SafePop()))
+		EvalOp(ops.SafePop(), floats);
+	ops.Push(op);
 }
 
 auto IsConstant(const std::string &literal) -> bool {

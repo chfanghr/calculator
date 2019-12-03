@@ -10,12 +10,13 @@
 #include "constants/constants.h"
 #include "token/token.h"
 #include "operators/functions/functions.h"
+#include "stack.h"
 
 #include <stack>
 #include <string>
 #include <exception>
 
-auto EvalOp(const std::string &op_name, std::stack<double> &floats) noexcept(false) -> void;
+auto EvalOp(const std::string &op_name, Stack<double> &floats) noexcept(false) -> void;
 
 auto IsOperator(const std::string &literal) -> bool;
 
@@ -31,7 +32,7 @@ auto ParseOperator(const std::string &literal) noexcept(false) -> Operator;
 
 auto ShouldPopNext(const std::string &n1, const std::string &n2) noexcept(false) -> bool;
 
-auto EvalUnprecedenced(const std::string &op, std::stack<std::string> &ops, std::stack<double> &floats) noexcept
+auto EvalUnprecedenced(const std::string &op, Stack<std::string> &ops, Stack<double> &floats) noexcept
 (false) -> void;
 
 auto IsFunction(const std::string &literal) -> bool;

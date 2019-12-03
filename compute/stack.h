@@ -6,39 +6,61 @@
 #define CALCULATOR_COMPUTE_STACK_H_
 
 #include <stack>
+#include <stdexcept>
 
 template<typename T>
-auto SafePop(std::stack<T> &s) -> T {
-	if (s.empty())
-		return {};
-	auto res = s.top();
-	s.pop();
-	return res;
-}
+class Stack : public std::stack<T> {
+ public:
+	Stack(std::initializer_list<T> l) : std::stack<T>(l) {}
+	Stack() : std::stack<T>() {}
 
-template<typename T>
-auto Pop(std::stack<T> &s) -> T {
-	if (s.empty())
-		throw std::runtime_error("Cannot pop: stack is empty.");
-	auto res = s.top();
-	s.pop();
-	return res;
-}
+	auto Pop() -> T {
+		if (!*this)
+			throw std::runtime_error("The stack is empty, nothing to pop.");
+		T res = this->top();
+		this->pop();
+		return res;
+	}
 
-template<typename T>
-auto SafeTop(std::stack<T> &s) -> T {
-	if (s.empty())
-		return {};
-	auto res = s.top();
-	return res;
-}
+	auto SafePop() -> T {
+		if (!*this)
+			return {};
+		T res = this->top();
+		this->pop();
+		return res;
+	}
 
-template<typename T>
-auto Top(std::stack<T> &s) -> T {
-	if (s.empty())
-		throw std::runtime_error("No elements in stack.");
-	auto res = s.top();
-	return res;
-}
+	auto Push(const T &v) -> void {
+		this->push(v);
+	}
+
+	auto Top() const -> T {
+		if (!*this)
+			throw std::runtime_error("The stack is empty.");
+		return this->top();
+	}
+
+	[[nodiscard]]auto SafeTop() const -> T {
+		if (!*this)
+			return {};
+		return this->top();
+	}
+
+	[[nodiscard]]auto TopRef() -> T & {
+		if (!*this)
+			throw std::runtime_error("The stack is empty.");
+		return this->top();
+	}
+
+	[[nodiscard]]auto TopRef() const -> const T & {
+		if (!*this)
+			throw std::runtime_error("The stack is empty.");
+		return this->top();
+	}
+
+	explicit operator bool() const {
+		return !this->empty();
+	}
+};
 
 #endif //CALCULATOR_COMPUTE_STACK_H_
