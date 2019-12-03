@@ -1,5 +1,5 @@
 # Calculator [![CircleCI](https://circleci.com/gh/chfanghr/calculator.svg?style=svg)](https://circleci.com/gh/chfanghr/calculator)
-`calculator` is a **Zero Dependency** **C++17** library. Frankly, the purpose of this library is to evaluate any common math expressions 
+`calculator` is a **Zero Dependency** **C++17** library. Frankly, the purpose of this library is to evaluate any common math expression 
 with high speed and low memory cost. 
 To achieve this, I implemented an engine which compiles math expressions 
 to **VM bytecode** so that the expressions can be evaluated effectively. <br>
