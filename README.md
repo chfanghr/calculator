@@ -2,7 +2,7 @@
 This is a **Zero Dependency** library which compiles an expression to **VM bytecode** then execute it. <br>
 Note That although this library is a cpp library, it provides an **untested** C-api. Just have a try :P.
 
-## Features: Supported functions, operators, and constants
+## Features: Support standard functions, operators, and constants
 `calculator` supports all the standard stuff, and I'm definitely adding more later (also feel free to fork and add
  your own!) .
  
