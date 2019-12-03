@@ -1,7 +1,23 @@
 # Calculator [![CircleCI](https://circleci.com/gh/chfanghr/calculator.svg?style=svg)](https://circleci.com/gh/chfanghr/calculator)
-This is a **Zero Dependency** calculator which compiles an expression to **VM bytecode** then execute it. <br>
+This is a **Zero Dependency** library which compiles an expression to **VM bytecode** then execute it. <br>
 Note That although this library is a cpp library, it provides an **untested** C-api. Just have a try :P.
 
+## Features: Supported functions, operators, and constants
+`calculator` supports all the standard stuff, and I'm definitely adding more later (also feel free to fork and add
+ your own!) .
+ 
+ ### Operators
+ `+`,`-`, `*`, `/`, `^`, `%`
+ 
+ ### Functions
+ `sin`, `cos`, `tan`, `cot`, `sec`, `csc`, `asin`, `acos`, `atan`, `acot`, `asec`, `acsc`, `sqrt`, `log`, `lg`, `ln`, `abs`
+ 
+ ### Constants
+ `e`, `pi`
+ 
+ ### History
+ Previous results can be accessed with the `@` symbol. A single `@` returns the result of the last computation, while multiple @ gets the nth last result, where n is the number of `@`s used (for example, `@@` returns the second-last result, `@@@@@` returns the fifth-last result).
+ 
 ## Requirements
 This library requires **C++17** to build, including compiler and standard library support. <br>
 So the following minimum versions will be required to build the library:
@@ -67,5 +83,5 @@ version = master:3268dc9+: # Or something else...
 - [ ] API Document
 - [ ] More Examples
 - [ ] Full Fill README
-- [ ] CLI Application
+- [ ] CLI Application (In progress, check out [calc](cmd/calc/README.md))
 - [ ] Benchmark
