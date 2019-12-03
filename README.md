@@ -28,9 +28,9 @@ So the following minimum versions will be required to build the library:
 * Clang 5
 * VS 2017 15.3
 
-And also the `cmake` and `make` tool:
+And also the `cmake` and `make` tools:
 * cmake 3.1.0
- 
+* make 4.0.0
 ## Build
 ```bash
 cmake -H. -Bbuild
