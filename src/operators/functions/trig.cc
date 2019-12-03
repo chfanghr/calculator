@@ -8,6 +8,7 @@
 #include "functions.h"
 
 #include <cmath>
+#include <functional>
 
 namespace calculator::operators::functions::standard {
 const Operator kSin = Operator{

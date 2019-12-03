@@ -15,6 +15,7 @@
 #include <map>
 #include <set>
 #include <deque>
+#include <functional>
 
 namespace calculator {
 class Engine {

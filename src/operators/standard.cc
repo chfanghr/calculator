@@ -8,6 +8,7 @@
 #include "operators.h"
 
 #include <cmath>
+#include <functional>
 
 namespace calculator::operators::standard {
 const Operator kAdd = Operator{
