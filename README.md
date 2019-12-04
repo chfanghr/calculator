@@ -58,17 +58,7 @@ make test
 tests/*tests
 ```
 You'll see:
-```
-❯ make test
-Running tests...
-Test project /Users/fanghr/CLionProjects/calculator/cmake-build-debug
-    Start 1: CALCULATOR_TESTS
-1/1 Test #1: CALCULATOR_TESTS .................   Passed    1.13 sec
-
-100% tests passed, 0 tests failed out of 1
-
-Total Test time (real) =   1.15 sec
-```
+![run_tests](doc/img/run_tests.gif)
 
 ## Examples
 The examples will be built by default, you will see them in your build folder.<br>
@@ -80,21 +70,7 @@ examples/simple
 examples/version
 ``` 
 You'll see
-```
-❯ examples/simple
-1+1=2
-1*3+2=5
-0+9/3=3
-(1+3)/2=2
-abs(-1.12334)=1.12334
-1.45*44%3=0.8
-(1+4)/cos(3.1415926)=-5
-@+1=-4
-@@+1=-4
-acos(1)*@=-0
-❯ examples/version
-version = master:3268dc9+: # Or something else...
-```
+![run_examples](doc/img/run_examples.gif)
 
 ## CLI App: `calc`
 **Usable but still Experimental**, check out [calc](cmd/calc/README.md)

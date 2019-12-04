@@ -4,4 +4,6 @@
 
 #include "calc.h"
 
+#include <calculator.h>
+
 auto EnterFileMode() -> int { return EXIT_SUCCESS; }
