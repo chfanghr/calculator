@@ -7,6 +7,7 @@
 
 #include <cmath>
 #include <stdexcept>
+#include <cstring>
 
 #ifdef __cplusplus
 extern "C" {
