@@ -118,7 +118,7 @@ auto OnNewLine(char *buf) -> void {
 			try {
 				auto res = kEngine.Evaluate(buf, kVerbose);
 				std::cout << res << std::endl;
-			} catch (const std::runtime_error &re) {
+			} catch (const std::exception &re) {
 				if (kStrict)
 					Panic(std::string("Cannot evaluate ") + buf + ": " + re.what());
 				if (kVerbose)

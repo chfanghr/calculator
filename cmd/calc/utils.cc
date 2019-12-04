@@ -51,8 +51,9 @@ auto ParseCommandLineOptions(int argc, char **argv) -> void {
 	int c;
 	while ((c = getopt(argc, argv, "qvVsihP:pfe")) != -1) {
 		switch (c) {
-			case 'q': kVerbose = false;
-				kQuiet           = true;
+			case 'q':;
+				kVerbose = false;
+				kQuiet   = true;
 				break;
 			case 'v': ShowVersion();
 				exit(EXIT_SUCCESS);
