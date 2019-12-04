@@ -15,8 +15,8 @@ A simple, fast, and intuitive command-line calculator written in cpp.
 You can use calc in three ways: shell mode ,expression mode and file mode.
 
 ### Shell Mode
-This is probably the mode you'll want to use. It's like the python shell or irb. **THIS MODE COMES WITH AUTO
--COMPLETION**
+This is probably the mode you'll want to use. It's like the python shell or irb. **THIS MODE COMES WITH
+Auto-COMPLETION (Just press `TAB`)**
 ```
 ❯ calc
 > 1+1
