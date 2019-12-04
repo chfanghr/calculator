@@ -6,10 +6,11 @@
 
 #include <calculator.h>
 
+#include <readline/readline.h>
+#include <readline/history.h>
+
 #include <string>
 #include <vector>
-
-#include <readline/readline.h>
 #include <iostream>
 #include <cstring>
 #include <csignal>

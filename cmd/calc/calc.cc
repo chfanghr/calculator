@@ -40,7 +40,7 @@ auto main(int argc, char **argv) -> int {
 		kForceInteractive = true;
 
 	if (kForceInteractive)
-		exit(Shell(""));
+		exit(Shell("> "));
 	else
 		exit(ParseAndEvaluate(to_eval));
 }
