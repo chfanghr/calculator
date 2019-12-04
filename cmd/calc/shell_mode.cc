@@ -120,7 +120,7 @@ auto OnNewLine(char *buf) -> void {
 				std::cout << res << std::endl;
 			} catch (const std::runtime_error &re) {
 				if (kStrict)
-					Panic(re.what());
+					Panic(std::string("Cannot evaluate ") + buf + ": " + re.what());
 				if (kVerbose)
 					std::cerr << "Cannot evaluate " << buf << ": " << re.what() << std::endl;
 				else if (!kQuiet)
@@ -136,7 +136,7 @@ auto StartShell(const std::string &prompt) -> void {
 	rl_callback_handler_install(prompt.c_str(), OnNewLine);
 }
 
-auto Shell(const std::string &prompt) -> int {
+auto EnterShellMode(const std::string &prompt) -> int {
 	if (!kQuiet)
 		ShowBanner();
 

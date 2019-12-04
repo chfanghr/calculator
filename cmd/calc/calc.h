@@ -6,19 +6,26 @@
 #define CALCULATOR_CMD_CALC_CALC_H_
 
 #include <string>
+#include <vector>
 
-extern bool          kQuiet;
-extern bool          kStrict;
-extern bool          kVerbose;
-extern bool          kForceInteractive;
-extern volatile bool kShouldExit;
+extern bool                     kQuiet;
+extern bool                     kStrict;
+extern bool                     kVerbose;
+extern bool                     kForceShellMode;
+extern bool                     kForceFileMode;
+extern bool                     kForceExpressionMode;
+extern volatile bool            kShouldExit;
+extern std::string              kPrompt;
+extern std::vector<std::string> kExtraOptions;
 
 auto Panic(const std::string &msg, int exit_value = EXIT_FAILURE) -> void;
-auto Shell(const std::string &prompt) -> int;
-auto ParseAndEvaluate(const std::string &in) -> int;
+auto EnterShellMode(const std::string &prompt) -> int;
+auto EnterExpressionsMode() -> int;
+auto EnterFileMode() -> int;
 auto TrimSpace(const std::string &str) noexcept -> std::string;
 auto ShowBanner() -> void;
-auto ShowVersion() -> int;
+auto ShowVersion() -> void;
 auto ShowHelpMessage() -> void;
+auto ParseCommandLineOptions(int argc, char **argv) -> void;
 
 #endif //CALCULATOR_CMD_CALC_CALC_H_
