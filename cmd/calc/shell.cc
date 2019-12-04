@@ -2,6 +2,8 @@
 // Created by 方泓睿 on 2019/12/4.
 //
 
+#include "calc.h"
+
 #include <calculator.h>
 
 #include <string>
@@ -9,6 +11,8 @@
 
 #include <readline/history.h>
 #include <readline/readline.h>
+
+#include <iostream>
 
 std::vector<std::string> kVocabulary;
 
@@ -18,8 +22,6 @@ auto GenerateVocabulary() -> void {
 	auto engine    = calculator::Engine();
 	auto functions = engine.Functions();
 	auto constants = engine.Constatnts();
-//	auto operators       = engine.Operators();
-//	auto op_exclude_func = std::vector<std::string>{};
 
 	for (const auto &function:functions)
 		if (function.size() > 1)
@@ -28,18 +30,6 @@ auto GenerateVocabulary() -> void {
 	for (const auto &constant:constants)
 		if (std::get<0>(constant).size() > 1)
 			kVocabulary.push_back(std::get<0>(constant));
-
-//	for (const auto &an_operator:operators)
-//		if (!engine.IsFunction(std::get<0>(an_operator)))
-//			op_exclude_func.push_back(std::get<0>(an_operator));
-//
-//	for (const auto &function:functions)
-//		for (const auto &oef:op_exclude_func)
-//			kVocabulary.push_back(oef + function);
-//
-//	for (const auto &constant:constants)
-//		for (const auto &oef:op_exclude_func)
-//			kVocabulary.push_back(oef + std::get<0>(constant));
 }
 
 char *CompletionGenerator(const char *text, int state) {
@@ -109,13 +99,22 @@ auto Shell(const std::string &prompt) -> int {
 	while ((buf = readline(prompt.c_str())) != nullptr) {
 		if (strlen(buf) > 0) {
 			add_history(buf);
-		}
-
-		try {
-			auto res = engine.Evaluate(buf);
-			printf("%s = %f\n", buf, res);
-		} catch (const std::runtime_error &re) {
-			printf("Cannot evaluate %s: %s\n", buf, re.what());
+			if (buf[0] == '!') {
+				system(&buf[1]);
+			}
+			if (!strcmp(buf, "shell"))
+				system("bash");
+			else {
+				try {
+					auto res = engine.Evaluate(buf, kVerbose);
+					std::cout << res << std::endl;
+				} catch (const std::runtime_error &re) {
+					if (kStrict)
+						Panic(re.what());
+					if (!kQuiet)
+						std::cerr << "Cannot evaluate " << buf << ": " << re.what() << std::endl;
+				}
+			}
 		}
 
 		// readline malloc'd the buffer; clean it up.

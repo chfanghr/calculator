@@ -64,6 +64,10 @@ void ClearError(Engine *engine) {
 	engine->status        = kEngineOk;
 }
 
+char *Version() {
+	return strdup(calculator::Engine::Version().c_str());
+}
+
 #ifdef __cplusplus
 }
 

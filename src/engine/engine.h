@@ -52,8 +52,8 @@ class Engine {
 	[[nodiscard]] auto GetOperator(const std::string &name) const noexcept(false) -> Operator;
 	[[nodiscard]] auto GetConstant(const std::string &name) const noexcept(false) -> double;
 
-	auto Evaluate(const std::string &in) -> double;
-	[[nodiscard]] auto Evaluate(const std::string &in) const -> double;
+	auto Evaluate(const std::string &in, bool verbose = false) -> double;
+	[[nodiscard]] auto Evaluate(const std::string &i, bool verbose = false) const -> double;
 
 	auto History() noexcept -> std::deque<double> &;
 	[[nodiscard]] auto History() const noexcept -> const std::deque<double> &;
@@ -88,7 +88,7 @@ class Engine {
 												 compute::utils::Stack<double> &floats) const -> void;
 	auto EvalOp(const std::string &op_name, compute::utils::Stack<double> &floats) const -> void;
  private:
-	[[nodiscard]] auto Eval(const std::string &in) const -> double;
+	[[nodiscard]] auto Eval(const std::string &in, bool verbose) const -> double;
  public:
 	static auto Version() -> std::string;
 };

@@ -6,7 +6,7 @@
 #include "stack.h"
 
 namespace calculator {
-auto Engine::Eval(const std::string &in) const -> double {
+auto Engine::Eval(const std::string &in, bool verbose) const -> double {
 	using namespace compute::utils;
 	using namespace compute::token;
 
@@ -67,13 +67,13 @@ auto Engine::Eval(const std::string &in) const -> double {
 	return floats.Top();
 }
 
-auto Engine::Evaluate(const std::string &in) -> double {
-	auto res = Eval(in);
+auto Engine::Evaluate(const std::string &in, bool verbose) -> double {
+	auto res = Eval(in, verbose);
 	PushHistory(res);
 	return res;
 }
 
-auto Engine::Evaluate(const std::string &in) const -> double {
-	return Eval(in);
+auto Engine::Evaluate(const std::string &in, bool verbose) const -> double {
+	return Eval(in, verbose);
 }
 }

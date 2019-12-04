@@ -29,6 +29,7 @@ double Evaluate(Engine *engine, const char *expression);
 
 void ClearError(Engine *engine);
 
+char *Version();
 #ifdef __cplusplus
 }
 #endif

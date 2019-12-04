@@ -49,7 +49,7 @@ auto Engine::GetConstant(const std::string &name) const noexcept(false) -> doubl
 }
 
 auto Engine::Version() -> std::string {
-	return std::string(GIT_BRANCH) + ":" + std::string(GIT_REV) + ":" + std::string(GIT_TAG);
+	return std::string(GIT_BRANCH) + "." + std::string(GIT_REV) + "." + std::string(GIT_TAG);
 }
 
 [[nodiscard]] auto Engine::Functions() const noexcept -> const std::set<std::string> & {
