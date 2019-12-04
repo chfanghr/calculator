@@ -5,6 +5,8 @@
 #include "utils.h"
 #include "stack.h"
 
+#include <iostream>
+
 namespace calculator {
 auto Engine::Eval(const std::string &in, bool verbose) const -> double {
 	using namespace compute::utils;
@@ -18,6 +20,9 @@ auto Engine::Eval(const std::string &in, bool verbose) const -> double {
 
 	for (;;) {
 		auto[pos, tok, lit]=s.Scan();
+		if (verbose)
+			std::cout << "[INFO] Got token: pos="
+								<< pos << " tok=" << ToString(tok) << " lit=" << lit << std::endl;
 		if (lit != "@" && back > -1 && !history_.empty()) {
 			floats.Push(GetHistory(back));
 			if (prev == Token::kRParen || IsConstant(ToString(prev)))

@@ -9,12 +9,14 @@
 #include <string>
 #include <vector>
 
-#include <readline/history.h>
 #include <readline/readline.h>
-
 #include <iostream>
+#include <cstring>
+#include <csignal>
 
 std::vector<std::string> kVocabulary;
+
+calculator::Engine kEngine;
 
 auto GenerateVocabulary() -> void {
 	kVocabulary = {};
@@ -32,7 +34,7 @@ auto GenerateVocabulary() -> void {
 			kVocabulary.push_back(std::get<0>(constant));
 }
 
-char *CompletionGenerator(const char *text, int state) {
+auto CompletionGenerator(const char *text, int state) -> char * {
 	// This function is called with state=0 the first time; subsequent calls are
 	// with a nonzero state. state=0 can be used to perform one-time
 	// initialization for this completion session.
@@ -79,7 +81,7 @@ char *CompletionGenerator(const char *text, int state) {
 	}
 }
 
-char **Completer(const char *text, int start, int end) {
+auto Completer(const char *text, int start, int end) -> char ** {
 	// Don't do filename completion even if our generator finds no matches.
 	rl_attempted_completion_over = 1;
 
@@ -88,42 +90,70 @@ char **Completer(const char *text, int start, int end) {
 	return rl_completion_matches(text, CompletionGenerator);
 }
 
-auto Shell(const std::string &prompt) -> int {
+auto InitShell() -> void {
 	GenerateVocabulary();
-
-	auto engine = calculator::Engine();
-
 	rl_attempted_completion_function = Completer;
-	char *buf = nullptr;
+	kEngine                          = calculator::Engine();
+	kEngine.Reset();
+}
 
-	while ((buf = readline(prompt.c_str())) != nullptr && kKeepRunning) {
-		if (strlen(buf) > 0) {
-			add_history(buf);
-			if (buf[0] == '!') {
-				system(&buf[1]);
-			} else if (!strcmp(buf, "shell"))
-				system("bash");
-			else if (!strcmp(buf, "quit"))
-				break;
-			else if (!strcmp(buf, "version"))
-				std::cout << "calc version " << calculator::Engine::Version() << std::endl;
-			else {
-				try {
-					auto res = engine.Evaluate(buf, kVerbose);
-					std::cout << res << std::endl;
-				} catch (const std::runtime_error &re) {
-					if (kStrict)
-						Panic(re.what());
-					if (!kQuiet)
-						std::cerr << "Cannot evaluate " << buf << ": " << re.what() << std::endl;
-				}
+auto OnNewLine(char *buf) -> void {
+	if (buf == nullptr) {
+		kShouldExit = true;
+		return;
+	}
+	if (strlen(buf) > 0) {
+		add_history(buf);
+		if (buf[0] == '!') {
+			system(&buf[1]);
+		} else if (!strcmp(buf, "shell"))
+			system("bash");
+		else if (!strcmp(buf, "quit")) {
+			kShouldExit = true;
+			return;
+		} else if (!strcmp(buf, "version"))
+			std::cout << "calc version " << calculator::Engine::Version() << std::endl;
+		else {
+			try {
+				auto res = kEngine.Evaluate(buf, kVerbose);
+				std::cout << res << std::endl;
+			} catch (const std::runtime_error &re) {
+				if (kStrict)
+					Panic(re.what());
+				if (kVerbose)
+					std::cerr << "Cannot evaluate " << buf << ": " << re.what() << std::endl;
+				else if (!kQuiet)
+					std::cout << "Cannot evaluate due to error" << std::endl;
 			}
 		}
+	}
+}
 
-		// readline malloc'd the buffer; clean it up.
-		free(buf);
+auto StartShell(const std::string &prompt) -> void {
+	InitShell();
+	rl_callback_handler_install(prompt.c_str(), OnNewLine);
+}
+
+auto Shell(const std::string &prompt) -> int {
+	if (!kQuiet)
+		ShowBanner();
+
+	kShouldExit = false;
+
+	StartShell(prompt);
+
+	if (signal(SIGINT, [](int) -> void {
+		fclose(stdin);
+		kShouldExit = true;
+	}) == SIG_ERR)
+		Panic("Failed to install signal handler.");
+
+	while (!kShouldExit) {
+		rl_callback_read_char();
 	}
 
-	std::cout << "Bye bye" << std::endl;
+	std::cout << std::endl << "Bye bye" << std::endl;
+
+	fflush(stdout);
 	return EXIT_SUCCESS;
 }

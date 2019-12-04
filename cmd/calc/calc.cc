@@ -4,33 +4,20 @@
 
 #include "calc.h"
 
-#include <calculator.h>
 #include <getopt.h>
-#include <iostream>
-
-#include <signal.h>
-
-auto ShowVersion() -> int {
-	std::cout << "calc version " << calculator::Engine::Version() << std::endl;
-	return EXIT_SUCCESS;
-}
-
-auto ShowHelpMessage() -> void {
-	// TODO
-}
 
 auto main(int argc, char **argv) -> int {
-	signal(SIGINT, IntHandler);
-
 	kVerbose = false;
 
 	int c;
-	while ((c = getopt(argc, argv, "qvsih")) != -1) {
+	while ((c = getopt(argc, argv, "qvVsih")) != -1) {
 		switch (c) {
-			case 'q': kQuiet = true;
+			case 'q': kVerbose = false;
+				kQuiet           = true;
 				break;
 			case 'v': exit(ShowVersion());
 			case 'V' : kVerbose = true;
+				kQuiet            = false;
 				break;
 			case 's': kStrict = true;
 				break;
@@ -53,7 +40,7 @@ auto main(int argc, char **argv) -> int {
 		kForceInteractive = true;
 
 	if (kForceInteractive)
-		exit(Shell(">> "));
+		exit(Shell(""));
 	else
 		exit(ParseAndEvaluate(to_eval));
 }
