@@ -54,7 +54,7 @@ bash$
 * `bc`
     * Limited number of built-in functions; these have shortened (not too intuitive) names as well.
 
-~~The most important reason is that I'm quit familiar with compiler and I  want to show off :P~~<br>
+~~The most important reason is that I'm quite familiar with compiler and I  want to show off :P~~<br>
 
 The alternatives above are all great, and have their own advantages over calc. I highly recommend looking into these
  if you don't like how calc works.
