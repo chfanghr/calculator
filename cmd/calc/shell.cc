@@ -128,6 +128,7 @@ auto OnNewLine(char *buf) -> void {
 			}
 		}
 	}
+	free(buf);
 }
 
 auto StartShell(const std::string &prompt) -> void {
@@ -144,8 +145,7 @@ auto Shell(const std::string &prompt) -> int {
 	StartShell(prompt);
 
 	if (signal(SIGINT, [](int) -> void {
-		fclose(stdin);
-		kShouldExit = true;
+		std::cout << "(interrupt) use quit to exit." << std::endl;
 	}) == SIG_ERR)
 		Panic("Failed to install signal handler.");
 
@@ -153,7 +153,7 @@ auto Shell(const std::string &prompt) -> int {
 		rl_callback_read_char();
 	}
 
-	std::cout << std::endl << "Bye bye" << std::endl;
+	std::cout << "Bye bye" << std::endl;
 
 	fflush(stdout);
 	return EXIT_SUCCESS;
