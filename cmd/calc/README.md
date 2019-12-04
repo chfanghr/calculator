@@ -12,12 +12,13 @@ A simple, fast, and intuitive command-line calculator written in cpp.
       running Windows :D.
      
 ## Usage
-You can use calc in two ways: shell mode and command.
+You can use calc in three ways: shell mode ,expression mode and file mode.
 
-### Shell mode
+### Shell Mode
 This is probably the mode you'll want to use. It's like the python shell or irb. **THIS MODE COMES WITH AUTO
 -COMPLETION**
 ```
+❯ calc
 > 1+1
 2
 > 3(5/(3-4))
@@ -32,12 +33,22 @@ This is probably the mode you'll want to use. It's like the python shell or irb.
 NaN
 ```
 
-### Command
+### Expression Mode
 You can also use calc to evaluate an expression with just a single command (i.e. without opening the shell). To do this, just use `calc [expression]`:
-```bash
-bash$ calc 1+1
+```
+❯ calc 1+1
 2
-bash$
+```
+
+### File Mode
+`calc` will evaluate expressions store in the files. Each line in the file will be considered as an expression
+, unless the line is begin with `#`. <br>
+An explicit `-f` option will be required to enable this mode:
+```
+❯ printf "1+1\n#1+1 should be 2\n cos(pi)" > input
+❯ calc -f input
+2
+-1
 ```
 
 ## Why not use .....
