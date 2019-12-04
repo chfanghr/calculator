@@ -96,14 +96,17 @@ auto Shell(const std::string &prompt) -> int {
 	rl_attempted_completion_function = Completer;
 	char *buf = nullptr;
 
-	while ((buf = readline(prompt.c_str())) != nullptr) {
+	while ((buf = readline(prompt.c_str())) != nullptr && kKeepRunning) {
 		if (strlen(buf) > 0) {
 			add_history(buf);
 			if (buf[0] == '!') {
 				system(&buf[1]);
-			}
-			if (!strcmp(buf, "shell"))
+			} else if (!strcmp(buf, "shell"))
 				system("bash");
+			else if (!strcmp(buf, "quit"))
+				break;
+			else if (!strcmp(buf, "version"))
+				std::cout << "calc version " << calculator::Engine::Version() << std::endl;
 			else {
 				try {
 					auto res = engine.Evaluate(buf, kVerbose);
@@ -120,5 +123,7 @@ auto Shell(const std::string &prompt) -> int {
 		// readline malloc'd the buffer; clean it up.
 		free(buf);
 	}
+
+	std::cout << "Bye bye" << std::endl;
 	return EXIT_SUCCESS;
 }
