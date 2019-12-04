@@ -16,3 +16,4 @@ jobs:
       - run: 'build/examples/simple'
       - run: 'build/examples/version'
       - run: 'build/tests/calculator_tests'
+      - run: 'printf "\n1+1\n6676767\ncos(pi)" > input && build/cmd/calc/calc < input && rm input'
