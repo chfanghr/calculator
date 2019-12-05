@@ -15,7 +15,9 @@ typedef enum {
 	kEngineException
 } EngineStatusCode;
 
-struct Engine;
+struct _Engine;
+
+typedef struct _Engine Engine;
 
 Engine *NewEngine();
 

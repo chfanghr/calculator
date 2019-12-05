@@ -80,7 +80,7 @@ You'll see<br>
 - [ ] API Document
 - [ ] More Examples
 - [ ] Full Fill README
-- [ ] CLI Application (Working in progress, check out [calc](cmd/calc))
+- [x] CLI Application (Working in progress, check out [calc](cmd/calc))
 - [ ] Benchmark
 
 ## Note: When you failed to build....

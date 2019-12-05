@@ -13,7 +13,7 @@
 extern "C" {
 #endif
 
-struct Engine {
+struct _Engine {
 	calculator::Engine engine;
 	EngineStatusCode   status{};
 	const char         *error_message{};
