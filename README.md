@@ -74,7 +74,7 @@ You'll see
 
 ## CLI App: `calc`
 **Usable but still Experimental**, check out [calc](cmd/calc/README.md)
-
+![calc_screenshot](doc/img/calc_screenshot.png)
 ## TODO
 - [ ] More Uint Tests
 - [ ] API Document
