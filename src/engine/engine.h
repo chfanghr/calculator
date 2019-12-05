@@ -35,6 +35,7 @@ class Engine {
 		std::function<double(const std::valarray<double> &)> operation;
 		Type                                                 type;
 	};
+
 	struct Constant {
 		std::string name;
 		double      value;
