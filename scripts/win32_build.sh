@@ -4,9 +4,7 @@ set -e
 
 if [ -d ".__deps" ]; then rm -rf ".__deps"; fi
 
-NPROCS=$(nproc 2>/dev/null ||
-  sysctl -n hw.ncpu 2>/dev/null ||
-  getconf _NPROCESSORS_ONLN 2>/dev/null)
+NPROCS=$(nproc 2>/dev/null || sysctl -n hw.ncpu 2>/dev/null || getconf _NPROCESSORS_ONLN 2>/dev/null)
 
 mkdir .__deps
 cd .__deps
@@ -76,8 +74,7 @@ mkdir Win32_deps
 cd Win32_deps
 
 cp ../.__deps/bin/libreadline8.dll .
-cp /usr/local/Cellar/mingw-w64/6.0.0_2/toolchain-x86_64/x86_64-w64-mingw32/lib/*.dll . || \
-  cp /usr/lib/gcc/x86_64-w64-mingw32/9.2-win32/*.dll .
+cp /usr/local/Cellar/mingw-w64/6.0.0_2/toolchain-x86_64/x86_64-w64-mingw32/lib/*.dll . || cp /usr/lib/gcc/x86_64-w64-mingw32/9.2-win32/*.dll .
 
 cd ..
 
