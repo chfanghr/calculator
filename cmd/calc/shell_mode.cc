@@ -101,27 +101,29 @@ auto OnNewLine(char *buf) -> void {
 	}
 	if (strlen(buf) > 0) {
 		add_history(buf);
-		if (buf[0] == '!') {
-			system(&buf[1]);
-		} else if (!strcmp(buf, "shell"))
-			system("bash");
-		else if (!strcmp(buf, "quit")) {
-			kShouldExit = true;
-			return;
-		} else if (!strcmp(buf, "version"))
-			std::cout << "calc version " << calculator::Engine::Version() << std::endl;
-		else {
-			try {
+		try {
+			if (buf[0] == '!') {
+				if (!system(&buf[1]))
+					throw std::runtime_error("Command execution failed.");
+			} else if (!strcmp(buf, "shell")) {
+				if (!system("bash"))
+					throw std::runtime_error("Failed to execute bash.");
+			} else if (!strcmp(buf, "quit")) {
+				kShouldExit = true;
+				return;
+			} else if (!strcmp(buf, "version")) {
+				std::cout << "calc version " << calculator::Engine::Version() << std::endl;
+			} else {
 				auto res = kEngine.Evaluate(buf, kVerbose);
 				std::cout << res << std::endl;
-			} catch (const std::exception &re) {
-				if (kStrict)
-					Panic(std::string("Cannot evaluate ") + buf + ": " + re.what());
-				if (kVerbose)
-					std::cerr << "Cannot evaluate " << buf << ": " << re.what() << std::endl;
-				else if (!kQuiet)
-					std::cout << "Cannot evaluate due to error" << std::endl;
 			}
+		} catch (const std::exception &re) {
+			if (kStrict)
+				Panic(std::string("Cannot evaluate ") + buf + ": " + re.what());
+			if (kVerbose)
+				std::cerr << "Cannot evaluate " << buf << ": " << re.what() << std::endl;
+			else if (!kQuiet)
+				std::cout << "Cannot evaluate due to error" << std::endl;
 		}
 	}
 	free(buf);
