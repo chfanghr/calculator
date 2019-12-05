@@ -4,9 +4,9 @@ set -e
 
 if [ -d ".__deps" ]; then rm -rf ".__deps"; fi
 
-NPROCS=$(nproc 2>/dev/null || \
-        sysctl -n hw.ncpu 2>/dev/null || \
-        getconf _NPROCESSORS_ONLN 2>/dev/null)
+NPROCS=$(nproc 2>/dev/null ||
+  sysctl -n hw.ncpu 2>/dev/null ||
+  getconf _NPROCESSORS_ONLN 2>/dev/null)
 
 mkdir .__deps
 cd .__deps
@@ -50,9 +50,9 @@ mkdir mingw_w64_build
 cd mingw_w64_build
 
 cmake -DCMAKE_BUILD_TYPE=Release \
-      -DCMAKE_TOOLCHAIN_FILE=../cmake/i686-w64-mingw32.cmake \
-      -DBUILD_TESTING=OFF \
-      -DCMAKE_PREFIX_PATH="${CMAKE_PREFIX_PATH}" ..
+  -DCMAKE_TOOLCHAIN_FILE=../cmake/i686-w64-mingw32.cmake \
+  -DBUILD_TESTING=OFF \
+  -DCMAKE_PREFIX_PATH="${CMAKE_PREFIX_PATH}" ..
 
 make -j"${NPROCS}"
 
