@@ -79,7 +79,7 @@ You'll see<br>
 - [ ] More Uint Tests
 - [ ] API Document
 - [ ] More Examples
-- [ ] Full Fill README
+- [x] Full Fill README
 - [x] CLI Application (Working in progress, check out [calc](cmd/calc))
 - [ ] Benchmark
 
