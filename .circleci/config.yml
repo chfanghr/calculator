@@ -9,7 +9,7 @@ jobs:
       - setup_remote_docker:
           docker_layer_caching: true
       - run: 'apt update && apt upgrade -y && apt install -y sudo'
-      - run: 'apt install -y gcc g++ git cmake make wget pkg-config libreadline-dev mingw-w64'
+      - run: 'apt install -y gcc g++ git cmake make wget pkg-config libreadline-dev mingw-w64 zip'
       - run: 'scripts/install_gtest.sh'
       - run: 'cc -v'
       - run: 'c++ -v'
