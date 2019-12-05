@@ -4,14 +4,14 @@
 
 #include "calc.h"
 
-#include <readline/readline.h>
-#include <readline/history.h>
-
 #include <string>
 #include <vector>
 #include <iostream>
 #include <cstring>
 #include <csignal>
+
+#include <readline/readline.h>
+#include <readline/history.h>
 
 std::vector<std::string> kVocabulary;
 
