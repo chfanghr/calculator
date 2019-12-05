@@ -2,6 +2,8 @@
 
 set -e
 
+if [ -d ".__deps" ]; then rm -rf ".__deps"; fi
+
 mkdir .__deps
 cd .__deps
 
@@ -29,6 +31,8 @@ make install
 cd ..
 
 cd ..
+
+if [ -d "mingw_w64_build" ]; then rm -rf "mingw_w64_build"; fi
 
 mkdir mingw_w64_build
 cd mingw_w64_build
