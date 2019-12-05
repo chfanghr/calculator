@@ -17,13 +17,13 @@ tar -xf readline-8.0.tar.gz
 tar -xf ncurses-6.1.tar.gz
 
 cd ncurses-6.1
-./configure --prefix=$PWD/.. --host=x86_64-w64-mingw32 --disable-shared --enable-static
+./configure --prefix=$PWD/.. --host=x86_64-w64-mingw32 --disable-shared --enable-static --enable-term-driver --enable-sp-funcs
 make -j8
 make install
 cd ..
 
 cd readline-8.0
-./configure --prefix=$PWD/.. --host=x86_64-w64-mingw32 --disable-shared --enable-static --enable-term-driver --enable-sp-funcs
+./configure --prefix=$PWD/.. --host=x86_64-w64-mingw32 --disable-shared --enable-static
 make -j8
 make install
 cd ..
