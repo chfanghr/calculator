@@ -18,12 +18,12 @@ function build() {
   make -j"${NPROCS}"
 }
 
-if [ -v ENABLE_CACHE ]; then
-  if [ -d ".__deps" ]; then
-    build
-    exit 0
-  fi
-fi
+#if [ -v ENABLE_CACHE ]; then
+#  if [ -d ".__deps" ]; then
+#    build
+#    exit 0
+#  fi
+#fi
 
 apt install -y mingw-w64 >>/dev/null 2>&1 || brew install mingw-w64 >>/dev/null 2>&1
 
