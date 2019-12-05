@@ -46,6 +46,7 @@ cd ..
 
 if [ -d "Win32_build_release" ]; then rm -rf "Win32_build_release"; fi
 if [ -d "Win32_build_debug" ]; then rm -rf "Win32_build_debug"; fi
+if [ -d "Win32_deps" ]; then rm -rf "Win32_deps"; fi
 
 mkdir Win32_build_release
 cd Win32_build_release
@@ -68,6 +69,15 @@ cmake -DCMAKE_BUILD_TYPE=Debug \
   -DCMAKE_PREFIX_PATH="${CMAKE_PREFIX_PATH}" ..
 
 make -j"${NPROCS}"
+
+cd ..
+
+mkdir Win32_deps
+cd Win32_deps
+
+cp ../__deps/bin/libreadline8.dll .
+cp /usr/local/Cellar/mingw-w64/6.0.0_2/toolchain-x86_64/x86_64-w64-mingw32/lib/*.dll . ||
+  cp /usr/lib/gcc/x86_64-w64-mingw32/9.2-win32/*.dll .
 
 cd ..
 
