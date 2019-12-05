@@ -4,11 +4,17 @@ FIND_LIBRARY(Readline REQUIRED)
 
 INCLUDE_DIRECTORIES(${Readline_INCLUDE_DIR})
 
-ADD_DEFINITIONS(--static)
-
-SET(CMAKE_EXE_LINKER_FLAGS "-static-libgcc -static-libstdc++")
+IF (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+	SET(CMAKE_EXE_LINKER_FLAGS "-static-libgcc -static-libstdc++")
+ENDIF ()
 
 ADD_EXECUTABLE(calc calc.cc shell_mode.cc calc.h expression_mode.cc utils.cc file_mode.cc)
+
+SET_TARGET_PROPERTIES(calc PROPERTIES LINK_SEARCH_START_STATIC 1)
+
+SET_TARGET_PROPERTIES(calc PROPERTIES LINK_SEARCH_END_STATIC 1)
+
+SET(CMAKE_FIND_LIBRARY_SUFFIXES ".a")
 
 TARGET_LINK_LIBRARIES(calc calculator ${Readline_LIBRARY})
 
