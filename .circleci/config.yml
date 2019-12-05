@@ -22,5 +22,5 @@ jobs:
       - run: 'build/tests/calculator_tests'
       - run: 'printf "\n1+1\n6676767\ncos(pi)" > input && build/cmd/calc/calc < input && rm input'
       - run: 'build/cmd/calc/calc "1+1" "e*cos(pi)" "abs(-1)"'
-      - run: './native_build.sh'
-      - run: './win32_build.sh'
+      - run: 'scripts/native_build.sh'
+      - run: 'scripts/win32_build.sh'

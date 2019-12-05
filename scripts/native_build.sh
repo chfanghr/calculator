@@ -2,5 +2,5 @@
 
 set -e
 
-cmake -H . -B "$(uname)_build"
+cmake -H. -B"$(uname)_build"
 cmake --build "$(uname)_build"
