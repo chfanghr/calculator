@@ -74,8 +74,10 @@ mkdir Win32_deps
 cd Win32_deps
 
 cp ../.__deps/bin/libreadline8.dll .
-cp  /usr/lib/gcc/x86_64-w64-mingw32/9.2-win32/*.dll . || cp /usr/lib/gcc/x86_64-w64-mingw32/9.2-win32/*.dll .
+cp /usr/lib/gcc/x86_64-w64-mingw32/*-win32/*.dll . || cp /usr/lib/gcc/x86_64-w64-mingw32/9.2-win32/*.dll .
 
 cd ..
+
+zip -r Win32_build.zip Win32_deps Win32_build_debug Win32_build_release
 
 exit 0
