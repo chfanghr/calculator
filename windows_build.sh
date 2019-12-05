@@ -44,10 +44,11 @@ cd ..
 
 cd ..
 
-if [ -d "mingw_w64_build" ]; then rm -rf "mingw_w64_build"; fi
+if [ -d "Win32_build_release" ]; then rm -rf "Win32_build_release"; fi
+if [ -d "Win32_build_debug" ]; then rm -rf "Win32_build_debug"; fi
 
-mkdir Win32_build
-cd Win32_build
+mkdir Win32_build_release
+cd Win32_build_release
 
 cmake -DCMAKE_BUILD_TYPE=Release \
   -DCMAKE_TOOLCHAIN_FILE=../cmake/i686-w64-mingw32.cmake \
@@ -55,5 +56,19 @@ cmake -DCMAKE_BUILD_TYPE=Release \
   -DCMAKE_PREFIX_PATH="${CMAKE_PREFIX_PATH}" ..
 
 make -j"${NPROCS}"
+
+cd ..
+
+mkdir Win32_build_debug
+cd Win32_build_debug
+
+cmake -DCMAKE_BUILD_TYPE=Debug \
+  -DCMAKE_TOOLCHAIN_FILE=../cmake/i686-w64-mingw32.cmake \
+  -DBUILD_TESTING=OFF \
+  -DCMAKE_PREFIX_PATH="${CMAKE_PREFIX_PATH}" ..
+
+make -j"${NPROCS}"
+
+cd ..
 
 exit 0
