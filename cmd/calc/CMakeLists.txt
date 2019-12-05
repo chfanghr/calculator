@@ -4,11 +4,9 @@ FIND_LIBRARY(Readline REQUIRED)
 
 INCLUDE_DIRECTORIES(${Readline_INCLUDE_DIR})
 
-IF (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-	SET(CMAKE_EXE_LINKER_FLAGS "-static-libgcc -static-libstdc++")
-ENDIF ()
-
 ADD_EXECUTABLE(calc calc.cc shell_mode.cc calc.h expression_mode.cc utils.cc file_mode.cc)
+
+ADD_DEFINITIONS(-static)
 
 TARGET_LINK_LIBRARIES(calc calculator ${Readline_LIBRARY})
 
