@@ -77,7 +77,7 @@ You'll see<br>
 ![calc_screenshot](doc/img/calc_screenshot.png)
 
 ## API Document
-Check [doc/APIS.md](doc/APIs.md)
+Check [doc/APIs.md](doc/APIs.md)
 
 ## TODO
 - [ ] More Uint Tests
