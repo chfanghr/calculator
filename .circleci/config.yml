@@ -13,6 +13,8 @@ jobs:
       - run: 'wget https://github.com/google/googletest/archive/release-1.10.0.tar.gz -O googletest.tar.gz'
       - run: 'tar -xf googletest.tar.gz'
       - run: 'cd googletest-release-1.10.0/ && cmake . && make && make install && ldconfig'
+      - run: 'cc -v'
+      - run: 'c++ -v'
       - run: 'cmake -H. -Bbuild'
       - run: 'cmake --build build'
       - run: 'build/examples/simple'
