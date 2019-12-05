@@ -1,6 +1,7 @@
 # calc
 
-A simple, fast, and intuitive command-line calculator written in cpp.
+A simple, fast, and intuitive command-line calculator written in cpp.<br>
+![calc_screenshot](../../doc/img/calc_screenshot.png)
 
 ## Requirements
 * Of course, `make`, `cmake`, cpp17 compiler,etc...
