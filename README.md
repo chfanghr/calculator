@@ -29,6 +29,7 @@ This library requires **C++17** to build, including compiler and standard librar
 So the following minimum versions will be required to build the library:
 * GCC 7
 * Clang 5
+* GCC 8 in cygwin
 * VS 2017 15.3 (technically, I don't know )
 
 ...And the `cmake` and `make` tools:
@@ -88,8 +89,9 @@ Check [doc/APIs.md](doc/APIs.md)
 - [ ] Benchmark
 
 ## Note: When you failed to build....
-* Check if your compiler/tools meet the requirements
+* Check if your compiler/tools meet the requirements.
 * If you're on Windows.... Sorry, I cannot help you cause I have no machine running Windows...
+* It's tested that this project can be built and run on Windows in cygwin.
 * Any way, feel free to open an issue, but please post the full detail%)....
 
 ## LICENSE

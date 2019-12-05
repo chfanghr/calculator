@@ -10,7 +10,7 @@ A simple, fast, and intuitive command-line calculator written in cpp.<br>
     * If you're using ubuntu(or other debian based system) - If you're facing compilation issue, try to run this
      command in your terminal: `sudo apt install -y libreadline-dev` then have another shot. 
      * If you are on Windows .... Oh, Sorry. You have to find yourself a solution cause the developer have no machine
-      running Windows :D.
+      running Windows :D. (Remember that the libreadline is needed to build calc)
      
 ## Usage
 You can use calc in three ways: shell mode ,expression mode and file mode.
