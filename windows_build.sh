@@ -46,8 +46,8 @@ cd ..
 
 if [ -d "mingw_w64_build" ]; then rm -rf "mingw_w64_build"; fi
 
-mkdir mingw_w64_build
-cd mingw_w64_build
+mkdir Win32_build
+cd Win32_build
 
 cmake -DCMAKE_BUILD_TYPE=Release \
   -DCMAKE_TOOLCHAIN_FILE=../cmake/i686-w64-mingw32.cmake \
