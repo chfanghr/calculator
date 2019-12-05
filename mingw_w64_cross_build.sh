@@ -2,36 +2,11 @@
 
 set -e
 
-export CMAKE_PREFIX_PATH="$PWD"/.__deps
-
-function build() {
-  if [ -d "mingw_w64_build" ]; then rm -rf "mingw_w64_build"; fi
-
-  mkdir mingw_w64_build
-  cd mingw_w64_build
-
-  cmake -DCMAKE_BUILD_TYPE=Release \
-    -DCMAKE_TOOLCHAIN_FILE=../cmake/i686-w64-mingw32.cmake \
-    -DBUILD_TESTING=OFF \
-    -DCMAKE_PREFIX_PATH="${CMAKE_PREFIX_PATH}" ..
-
-  make -j"${NPROCS}"
-}
-
-#if [ -v ENABLE_CACHE ]; then
-#  if [ -d ".__deps" ]; then
-#    build
-#    exit 0
-#  fi
-#fi
-
-apt install -y mingw-w64 >>/dev/null 2>&1 || brew install mingw-w64 >>/dev/null 2>&1
-
 if [ -d ".__deps" ]; then rm -rf ".__deps"; fi
 
-NPROCS=$(nproc 2>/dev/null ||
-  sysctl -n hw.ncpu 2>/dev/null ||
-  getconf _NPROCESSORS_ONLN 2>/dev/null)
+NPROCS=$(nproc 2>/dev/null || \
+        sysctl -n hw.ncpu 2>/dev/null || \
+        getconf _NPROCESSORS_ONLN 2>/dev/null)
 
 mkdir .__deps
 cd .__deps
@@ -39,6 +14,7 @@ cd .__deps
 #export CFLAGS=-I"$PWD"/include
 export CPPFLAGS=-I"$PWD"/include
 export LDFLAGS=-L"$PWD"/lib
+export CMAKE_PREFIX_PATH="$PWD"
 
 wget https://ftp.gnu.org/gnu/readline/readline-8.0.tar.gz
 wget https://ftp.gnu.org/pub/gnu/ncurses/ncurses-6.1.tar.gz
@@ -68,6 +44,16 @@ cd ..
 
 cd ..
 
-build
+if [ -d "mingw_w64_build" ]; then rm -rf "mingw_w64_build"; fi
+
+mkdir mingw_w64_build
+cd mingw_w64_build
+
+cmake -DCMAKE_BUILD_TYPE=Release \
+      -DCMAKE_TOOLCHAIN_FILE=../cmake/i686-w64-mingw32.cmake \
+      -DBUILD_TESTING=OFF \
+      -DCMAKE_PREFIX_PATH="${CMAKE_PREFIX_PATH}" ..
+
+make -j"${NPROCS}"
 
 exit 0
