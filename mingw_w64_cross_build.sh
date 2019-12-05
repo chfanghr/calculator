@@ -4,7 +4,9 @@ set -e
 
 if [ -d ".__deps" ]; then rm -rf ".__deps"; fi
 
-NPROCS=$(nproc 2>/dev/null || sysctl -n hw.ncpu 2>/dev/null || getconf _NPROCESSORS_ONLN 2>/dev/null)
+NPROCS=$(nproc 2>/dev/null || \
+        sysctl -n hw.ncpu 2>/dev/null || \
+        getconf _NPROCESSORS_ONLN 2>/dev/null)
 
 mkdir .__deps
 cd .__deps
