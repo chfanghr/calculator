@@ -11,7 +11,7 @@ NPROCS=$(nproc 2>/dev/null || \
 mkdir .__deps
 cd .__deps
 
-export CFLAGS=-I"$PWD"/include
+#export CFLAGS=-I"$PWD"/include
 export CPPFLAGS=-I"$PWD"/include
 export LDFLAGS=-L"$PWD"/lib
 export CMAKE_PREFIX_PATH="$PWD"
@@ -25,7 +25,7 @@ tar -xf ncurses-6.1.tar.gz
 tar -xf termcap-1.3.1.tar.gz
 
 cd termcap-1.3.1
-./configure --prefix="$PWD"/.. --host=x86_64-w64-mingw32 --disable-shared --enable-static
+./configure --prefix="$PWD"/.. --host=x86_64-w64-mingw32
 make -j"${NPROCS}"
 make install
 cd ..
@@ -37,7 +37,7 @@ make install
 cd ..
 
 cd readline-8.0
-./configure --prefix="$PWD"/.. --host=x86_64-w64-mingw32 --disable-shared --enable-static
+./configure --prefix="$PWD"/.. --host=x86_64-w64-mingw32 --enable-shared --enable-static
 make -j"${NPROCS}"
 make install
 cd ..
