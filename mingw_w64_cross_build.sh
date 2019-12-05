@@ -44,4 +44,6 @@ cmake -DCMAKE_BUILD_TYPE=Release \
       -DBUILD_TESTING=OFF \
       -DCMAKE_PREFIX_PATH="${CMAKE_PREFIX_PATH}" ..
 
+make -j"${NPROCS}"
+
 exit 0
