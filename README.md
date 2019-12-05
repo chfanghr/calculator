@@ -57,7 +57,7 @@ make test
 ## or
 tests/*tests
 ```
-You'll see:
+You'll see:<br>
 ![run_tests](doc/img/run_tests.gif)
 
 ## Examples
@@ -69,18 +69,18 @@ cd build
 examples/simple
 examples/version
 ``` 
-You'll see
+You'll see<br>
 ![run_examples](doc/img/run_examples.gif)
 
 ## CLI App: `calc`
-**Usable but still Experimental**, check out [calc](cmd/calc/README.md)
+**Usable but still Experimental**, check out [calc](cmd/calc/README.md)<br>
 ![calc_screenshot](doc/img/calc_screenshot.png)
 ## TODO
 - [ ] More Uint Tests
 - [ ] API Document
 - [ ] More Examples
 - [ ] Full Fill README
-- [ ] CLI Application (Working in progress, check out [calc](cmd/calc/README.md))
+- [ ] CLI Application (Working in progress, check out [calc](cmd/calc))
 - [ ] Benchmark
 
 ## Note: When you failed to build....
