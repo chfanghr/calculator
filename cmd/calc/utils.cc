@@ -38,6 +38,7 @@ auto ShowBanner() -> void {
 	ShowVersion();
 	std::cout << "calc is a powerful open-source command-line calculator." << std::endl;
 	std::cout << "The code is hosted on github.com/chfanghr/calculator with MIT license." << std::endl;
+	std::cout << "Copyright 2019 chfanghr@gmail.com." << std::endl;
 }
 
 auto ShowVersion() -> void {
@@ -45,13 +46,41 @@ auto ShowVersion() -> void {
 }
 
 auto ShowHelpMessage() -> void {
-	// TODO
+	auto ShowOption = [](char opt, const std::string &desc) -> void {
+		std::cout << "	-" << opt << "			" << desc << std::endl;
+	};
+	ShowBanner();
+	std::cout << std::endl << "Options: " << std::endl;
+
+	ShowOption('h', "Show this help message and then exit.");
+	ShowOption('v', "Show version of calc and then exit.");
+	ShowOption('q', "Quiet mode: don't print banner while startup as wel as disable  warning and diagnostic messages.");
+	ShowOption('f', "File mode. Make calc to treat the arguments which are not parsed as file path and evaluate "
+									"expressions store in the files.");
+	ShowOption('P', "Set the prompt for shell mode. Require one argument. The default prompt is '> '.");
+	ShowOption('p', "Disable prompt.");
+	ShowOption('V', "Verbose mode: show more debug information.");
+	ShowOption('e', "Expression mode: force calc to enter expression mode.");
+	ShowOption('i', "Interactive mode: force calc to enter shell mode.");
 }
 
 auto ParseCommandLineOptions(int argc, char **argv) -> void {
 	int c;
+	// q quiet
+	// V verbose
+	// v version
+	// s strict
+	// i force interactive
+	// h help
+	// P set prompt
+	// p no prompt
+	// f force file mode
+	// e force expression mode
 	while ((c = getopt(argc, argv, "qvVsihP:pfe")) != -1) {
 		switch (c) {
+			case 'h':;
+				ShowHelpMessage();
+				exit(EXIT_SUCCESS);
 			case 'q':;
 				kVerbose = false;
 				kQuiet   = true;
