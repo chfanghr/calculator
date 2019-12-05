@@ -63,7 +63,7 @@ class Engine {
 	auto Reset() noexcept -> void;
 
 	[[nodiscard]] auto Functions() const noexcept -> const std::set<std::string> &;
-	[[nodiscard]] auto Constatnts() const noexcept -> const std::map<std::string, double> &;
+	[[nodiscard]] auto Constants() const noexcept -> const std::map<std::string, double> &;
 	[[nodiscard]] auto Operators() const noexcept -> const std::map<std::string, Operator> &;
  private:
 	std::map<std::string, Operator> operators_;

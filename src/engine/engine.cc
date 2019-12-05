@@ -56,7 +56,7 @@ auto Engine::Version() -> std::string {
 	return functions_;
 }
 
-[[nodiscard]] auto Engine::Constatnts() const noexcept -> const std::map<std::string, double> & {
+[[nodiscard]] auto Engine::Constants() const noexcept -> const std::map<std::string, double> & {
 	return constants_;
 }
 

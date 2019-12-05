@@ -20,7 +20,7 @@ auto GenerateVocabulary() -> void {
 
 	auto engine    = calculator::Engine();
 	auto functions = engine.Functions();
-	auto constants = engine.Constatnts();
+	auto constants = engine.Constants();
 
 	for (const auto &function:functions)
 		if (function.size() > 1)
