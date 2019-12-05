@@ -17,7 +17,7 @@ You can use calc in three ways: shell mode ,expression mode and file mode.
 
 ### Shell Mode
 This is probably the mode you'll want to use. It's like the python shell or irb. **THIS MODE COMES WITH
-AUTO-COMPLETION (Just press `TAB`)**
+AUTO-COMPLETION (Just press `TAB`)**<br><br>
 ![calc_shell_mode](../../doc/img/calc_shell_mode.gif)
 
 ### Expression Mode
@@ -28,7 +28,7 @@ You can also use calc to evaluate an expression with just a single command (i.e.
 `calc` will evaluate expressions store in the files. Each line in the file will be considered as an expression
 , unless the line is begin with `#`. <br>
 An explicit `-f` option will be required to enable this mode:
-![calc_filr_mode](../../doc/img/calc_file_mode.png)
+![calc_file_mode](../../doc/img/calc_file_mode.png)
 
 ## Why not use .....
 * Google
