@@ -4,16 +4,14 @@
 
 #include "calc.h"
 
-#include <calculator.h>
-
 #include <iostream>
 
 auto EnterExpressionsMode() -> int {
-	auto engine = calculator::Engine();
+	kEngine.Reset();
 
 	for (const auto &ele:kExtraOptions) {
 		try {
-			std::cout << engine.Evaluate(ele, kVerbose) << std::endl;
+			std::cout << kEngine.Evaluate(ele, kVerbose) << std::endl;
 		} catch (const std::exception &re) {
 			if (kStrict)
 				Panic(std::string("Cannot evaluate ") + ele + ": " + re.what());

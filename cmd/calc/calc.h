@@ -5,6 +5,8 @@
 #ifndef CALCULATOR_CMD_CALC_CALC_H_
 #define CALCULATOR_CMD_CALC_CALC_H_
 
+#include <calculator.h>
+
 #include <string>
 #include <vector>
 
@@ -17,6 +19,7 @@ extern bool                     kForceExpressionMode;
 extern volatile bool            kShouldExit;
 extern std::string              kPrompt;
 extern std::vector<std::string> kExtraOptions;
+extern calculator::Engine       kEngine;
 
 auto Panic(const std::string &msg, int exit_value = EXIT_FAILURE) -> void;
 auto EnterShellMode(const std::string &prompt) -> int;

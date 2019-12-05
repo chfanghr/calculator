@@ -18,6 +18,7 @@ bool                     kForceExpressionMode = false;
 volatile bool            kShouldExit          = false;
 std::string              kPrompt              = "> "; // NOLINT(cert-err58-cpp)
 std::vector<std::string> kExtraOptions        = {};
+calculator::Engine       kEngine;;
 
 auto Panic(const std::string &msg, int exit_value) -> void {
 	std::cerr << "[PANIC] what: " << msg << std::endl;

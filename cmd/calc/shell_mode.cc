@@ -4,8 +4,6 @@
 
 #include "calc.h"
 
-#include <calculator.h>
-
 #include <readline/readline.h>
 #include <readline/history.h>
 
@@ -16,8 +14,6 @@
 #include <csignal>
 
 std::vector<std::string> kVocabulary;
-
-calculator::Engine kEngine;
 
 auto GenerateVocabulary() -> void {
 	kVocabulary = {};
