@@ -18,9 +18,17 @@ export CMAKE_PREFIX_PATH="$PWD"
 
 wget https://ftp.gnu.org/gnu/readline/readline-8.0.tar.gz
 wget https://ftp.gnu.org/pub/gnu/ncurses/ncurses-6.1.tar.gz
+wget http://ftp.gnu.org/gnu/termcap/termcap-1.3.1.tar.gz
 
 tar -xf readline-8.0.tar.gz
 tar -xf ncurses-6.1.tar.gz
+tar -xf termcap-1.3.1.tar.gz
+
+cd termcap-1.3.1
+./configure --prefix="$PWD"/.. --host=x86_64-w64-mingw32 --disable-shared --enable-static
+make -j"${NPROCS}"
+make install
+cd ..
 
 cd ncurses-6.1
 ./configure --prefix="$PWD"/.. --host=x86_64-w64-mingw32 --disable-shared --enable-static --enable-term-driver --enable-sp-funcs
