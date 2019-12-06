@@ -1,0 +1,39 @@
+diff --git a/linenoise.hpp b/linenoise.hpp
+index 1aae285..8af2524 100644
+--- a/linenoise.hpp
++++ b/linenoise.hpp
+@@ -131,7 +131,7 @@
+ #ifndef NOMINMAX
+ #define NOMINMAX
+ #endif
+-#include <Windows.h>
++#include <windows.h>
+ #include <io.h>
+ #ifndef STDIN_FILENO
+ #define STDIN_FILENO (_fileno(stdin))
+@@ -1623,6 +1623,8 @@ inline bool enableRawMode(int fd) {
+     if (tcsetattr(fd,TCSAFLUSH,&raw) < 0) goto fatal;
+     rawmode = true;
+ #else
++		DWORD consolemodeOut;
++		DWORD consolemodeInWithRaw;
+     if (!atexit_registered) {
+         /* Cleanup them at exit */
+         atexit(linenoiseAtExit);
+@@ -1633,7 +1635,6 @@ inline bool enableRawMode(int fd) {
+         if (hOut==INVALID_HANDLE_VALUE) goto fatal;
+     }
+ 
+-    DWORD consolemodeOut;
+     if (!GetConsoleMode(hOut, &consolemodeOut)) {
+         CloseHandle(hOut);
+         errno = ENOTTY;
+@@ -1648,7 +1649,7 @@ inline bool enableRawMode(int fd) {
+     }
+ 
+     GetConsoleMode(hIn, &consolemodeIn);
+-    DWORD consolemodeInWithRaw = consolemodeIn & ~ENABLE_PROCESSED_INPUT;
++    consolemodeInWithRaw = consolemodeIn & ~ENABLE_PROCESSED_INPUT;
+     SetConsoleMode(hIn, consolemodeInWithRaw);
+ 
+     rawmode = true;

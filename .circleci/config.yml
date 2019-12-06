@@ -18,8 +18,8 @@ jobs:
       - run: '$(uname)_build_debug/examples/simple'
       - run: '$(uname)_build_debug/cmd/calc/calc "1+1" "e*cos(pi)" "abs(-1)"'
       - run: 'printf "\n1+1\n6676767\ncos(pi)" > input && $(uname)_build_debug/cmd/calc/calc < input && rm input'
-      #      - run: 'scripts/win32_build.sh'
+      - run: 'scripts/win32_build.sh'
       - store_artifacts:
           path: Linux_build.zip
-#      - store_artifacts:
-#          path: Win32_build.zip
+      - store_artifacts:
+          path: Win32_build.zip
