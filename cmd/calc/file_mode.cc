@@ -11,6 +11,9 @@
 #include <iostream>
 
 auto ReadAndEvaluate(const std::string &file_name) -> void {
+	if (file_name.empty())
+		return;
+
 	auto file = std::ifstream(file_name);
 
 	for (std::string line; std::getline(file, line);) {
@@ -38,6 +41,8 @@ auto EnterFileMode() -> int {
 	kEngine.Reset();
 	for (const auto &file:kExtraOptions) {
 		try {
+			if (file.empty())
+				continue;
 			ReadAndEvaluate(file);
 		} catch (const std::exception &re) {
 			if (kStrict)

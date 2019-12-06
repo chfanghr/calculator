@@ -127,7 +127,8 @@ auto ParseCommandLineOptions(int argc, char **argv) -> void {
 	}
 
 	for (auto index = optind; index < argc; index++)
-		kExtraOptions.emplace_back(argv[index]);
+		if (argv[index] != nullptr)
+			kExtraOptions.emplace_back(argv[index]);
 
 	if (kExtraOptions.empty()) {
 		if (kForceExpressionMode || kForceFileMode)
