@@ -54,7 +54,7 @@ This will create a `build` folder in the project root, and build the project ins
 
 If you don't want to build tests, replace the first command with:
 ```bash
-cmake -DBUILD_TESTING=OFFF -H. -Bbuild
+cmake -DBUILD_TESTING=OFF -H. -Bbuild
 ``` 
 
 ### Build for Windows
