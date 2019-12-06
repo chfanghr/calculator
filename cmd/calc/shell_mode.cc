@@ -10,9 +10,6 @@
 #include <cstring>
 #include <csignal>
 
-#include <readline/readline.h>
-#include <readline/history.h>
-
 #include "third_party/cpp-linenoise/linenoise.hpp"
 
 std::vector<std::string> kVocabulary;
