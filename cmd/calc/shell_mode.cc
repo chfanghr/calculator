@@ -71,6 +71,8 @@ auto EnterShellMode(const std::string &prompt) -> int {
 	const auto history_path = std::string(getenv("USER")) + "/.calc_history";
 
 	linenoise::SetCompletionCallback([](const char *text, std::vector<std::string> &matches) {
+		if (!text)
+			return;
 		auto in = std::string(text);
 		if (in.empty())
 			return;
