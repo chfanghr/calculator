@@ -108,7 +108,8 @@ auto EnterShellMode(const std::string &prompt) -> int {
 	});
 
 	std::signal(SIGINT, [](int) -> void {
-		std::cerr << "(interrupt) Please use 'quit' to exit";
+		kShouldExit = true;
+		std::cerr << "(interrupt) Please use 'quit' to exit<<std::endl";
 	});
 
 	linenoise::SetMultiLine(true);
@@ -121,7 +122,7 @@ auto EnterShellMode(const std::string &prompt) -> int {
 
 		if (std::cin.fail() || std::cin.eof())
 			break;
-		
+
 		auto quit = linenoise::Readline((prompt + " ").c_str(), line);
 
 		if (quit) break;
