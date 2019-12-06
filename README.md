@@ -42,6 +42,8 @@ If you want to build tests(which is enable by default), you should also install 
 First of all, clone the project with
 ```shell script
 git clone --recursive https://github.com/chfanghr/calculator.git
+cd calculator
+scripts/get_cpp_linenoise_and_apply_patch.sh
 ```
 Then build it:
 ```bash
