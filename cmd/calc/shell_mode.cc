@@ -116,7 +116,7 @@ auto EnterShellMode(const std::string &prompt) -> int {
 
 		OnNewLine(line);
 
-		if (quit) break;
+		if (kShouldExit) break;
 
 		linenoise::AddHistory(line.c_str());
 	}
