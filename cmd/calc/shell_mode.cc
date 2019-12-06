@@ -112,9 +112,11 @@ auto EnterShellMode(const std::string &prompt) -> int {
 
 		auto quit = linenoise::Readline(strdup((prompt + " ").c_str()), line);
 
-		if (quit || kShouldExit) break;
+		if (quit) break;
 
 		OnNewLine(line);
+
+		if (quit) break;
 
 		linenoise::AddHistory(line.c_str());
 	}
