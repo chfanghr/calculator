@@ -87,7 +87,9 @@ auto EnterShellMode(const std::string &prompt) -> int {
 
 		pos += 1;
 
-		auto word_remain  = std::string(in, 0, pos);
+		auto word_remain = std::string();
+		if (pos != 0)
+			word_remain = std::string(in, 0, pos);
 		auto word_to_comp = std::string(in, pos);
 
 		for (const auto &word : kVocabulary) {
