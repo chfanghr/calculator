@@ -18,7 +18,7 @@ bool                     kForceExpressionMode = false;
 volatile bool            kShouldExit          = false;
 std::string              kPrompt              = "> "; // NOLINT(cert-err58-cpp)
 std::vector<std::string> kExtraOptions        = {};
-calculator::Engine       kEngine;;
+calculator::Engine       kEngine;
 
 auto Panic(const std::string &msg, int exit_value) -> void {
 	std::cerr << "[PANIC] what: " << msg << std::endl;
@@ -100,7 +100,7 @@ auto ParseCommandLineOptions(int argc, char **argv) -> void {
 				kForceExpressionMode = false;
 				break;
 			case 'p':;
-				kPrompt = "";
+				kPrompt = std::string();
 				break;
 			case 'P':;
 				kPrompt = optarg;
