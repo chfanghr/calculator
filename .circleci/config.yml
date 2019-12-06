@@ -8,10 +8,8 @@ jobs:
       - checkout
       - run: 'apt update && apt upgrade -y && apt install -y sudo'
       - run: 'apt install -y gcc g++ git cmake make wget pkg-config libreadline-dev mingw-w64 zip'
-      - run: 'git submodule init && git submodule update --remote'
+      - run: 'scripts/get_cpp_linenoise_and_apply_patch.sh'
       - run: 'scripts/install_gtest.sh'
-      - run: 'echo "core_num=$(nproc 2>/dev/null ||sysctl -n hw.ncpu 2>/dev/null || getconf _NPROCESSORS_ONLN
-      2>/dev/null)"'
       - run: 'scripts/native_build.sh'
       - run: '$(uname)_build_debug/tests/*tests'
       - run: '$(uname)_build_debug/examples/version'
