@@ -2,6 +2,7 @@
 
 set -e
 
+echo "Applying patch..."
 cd cmd/calc/third_party/cpp-linenoise
 git submodule init
 git submodule update --remote
