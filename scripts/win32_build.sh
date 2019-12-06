@@ -37,8 +37,8 @@ cd ..
 mkdir Win32_deps
 cd Win32_deps
 
-cp /usr/lib/gcc/x86_64-w64-mingw32/*-win32/*.dll . > /dev/null 2>&1 || cp \
-  /usr/local/Cellar/mingw-w64/*/toolchain-x86_64/x86_64-w64-mingw32/lib/*.dll . > /dev/null 2>&1
+cp /usr/lib/gcc/x86_64-w64-mingw32/*-win32/*.dll . >/dev/null 2>&1 || cp \
+  /usr/local/Cellar/mingw-w64/*/toolchain-x86_64/x86_64-w64-mingw32/lib/*.dll . >/dev/null 2>&1
 
 cd ..
 
