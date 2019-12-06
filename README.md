@@ -57,6 +57,12 @@ If you don't want to build tests, replace the first command with:
 cmake -DBUILD_TESTING=OFFF -H. -Bbuild
 ``` 
 
+### Build for Windows
+```shell script
+scripts/win32_build.sh
+```
+Note that the tests are disabled on Windows.
+
 ## Tests
 The tests will be built by default. To run it(for now there is only one test, more tests will be added soon ):
 ```bash
