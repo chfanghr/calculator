@@ -33,7 +33,7 @@ auto GenerateVocabulary() -> void {
 auto OnNewLine(const std::string &in) -> void {
 	if (!in.empty()) {
 		try {
-			if (in[0] == '!') {
+			if (in[0] == '!' && in.size() > 1) {
 				if (!system(&in.c_str()[1]))
 					throw std::runtime_error("Command execution failed.");
 			} else if (in == "shell") {
@@ -69,7 +69,13 @@ auto EnterShellMode(const std::string &prompt) -> int {
 	kShouldExit = false;
 	kEngine.Reset();
 
-	const auto history_path = std::string(getenv("USER")) + "/.calc_history";
+	auto user_dir = const_cast<const char *>(getenv("USER"));
+	if (!user_dir)
+		user_dir = const_cast<const char *>(getenv("HOME"));
+	if (!user_dir)
+		user_dir = "/tmp";
+
+	const auto history_path = std::string(user_dir) + "/.calc_history";
 
 	linenoise::SetCompletionCallback([](const char *text, std::vector<std::string> &matches) {
 		if (!text)
