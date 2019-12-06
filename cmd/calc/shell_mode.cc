@@ -40,6 +40,7 @@ auto OnNewLine(const std::string &in) -> void {
 				if (!system("bash"))
 					throw std::runtime_error("Failed to execute bash.");
 			} else if (in == "quit") {
+				std::cout << "";
 				kShouldExit = true;
 				return;
 			} else if (in == "version") {
@@ -112,7 +113,7 @@ auto EnterShellMode(const std::string &prompt) -> int {
 		// Read line
 		std::string line{};
 
-		auto quit = linenoise::Readline(strdup((prompt + " ").c_str()), line);
+		auto quit = linenoise::Readline((prompt + " ").c_str(), line);
 
 		if (quit) break;
 
