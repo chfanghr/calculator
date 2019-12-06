@@ -119,6 +119,9 @@ auto EnterShellMode(const std::string &prompt) -> int {
 		// Read line
 		std::string line{};
 
+		if (std::cin.fail() || std::cin.eof())
+			break;
+		
 		auto quit = linenoise::Readline((prompt + " ").c_str(), line);
 
 		if (quit) break;
