@@ -1,0 +1,3 @@
+[submodule "cmd/calc/third_party/cpp-linenoise"]
+	path = cmd/calc/third_party/cpp-linenoise
+	url = https://github.com/yhirose/cpp-linenoise.git

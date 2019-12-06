@@ -5,14 +5,13 @@ A simple, fast, and intuitive command-line calculator written in cpp.<br>
 
 ## Requirements
 * Of course, `make`, `cmake`, cpp17 compiler,etc...
-* The GNU's `libreadline` and (mingw w64 only)`libncurses`
-    * If you're using osx - Then you need to do nothing. Just build it and enjoy!
-    * If you're using ubuntu(or other debian based system) - If you're facing compilation issue, try to run this
-     command in your terminal: `sudo apt install -y libreadline-dev` then have another shot. 
-     * If you are on Windows .... Oh, Sorry. You have to find yourself a solution cause the developer have no machine
-      running Windows :D. 
-     * It's tested that `libreadline` won't link successfully without `libncurses`. :poop:
-     
+* The [`cpp-linenoise`](https://github.com/yhirose/cpp-linenoise). It's added to this project as a submodule. 
+ Do this in project root if you didn't clone with `--recursive`:
+```shell script
+git submodule init
+git submodule update --remote
+```
+
 ## Usage
 You can use calc in three ways: shell mode ,expression mode and file mode.
 

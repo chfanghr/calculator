@@ -39,6 +39,11 @@ So the following minimum versions will be required to build the library:
 If you want to build tests(which is enable by default), you should also install Google Test framework on your machine.
  
 ## Build
+First of all, clone the project with
+```shell script
+git clone --recursive https://github.com/chfanghr/calculator.git
+```
+Then build it:
 ```bash
 cmake -H. -Bbuild
 cmake --build build
