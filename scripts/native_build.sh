@@ -11,13 +11,15 @@ if [ -d "${kernel}_release" ]; then rm -rf ${kernel}_release; fi
 
 mkdir ${kernel}_release
 
-cmake -DCMAKE_BUILD_TYPE=Debug -H. -B"${kernel}_build_debug"
-cd ${kernel}_build_debug
-make -j${NPROCS}
-cd ..
+cmake -DCMAKE_BUILD_TYPE=Debug \
+  -DBUILD_TESTS=ON \
+  -H. -B"${kernel}_build_debug"
+cmake --build ${kernel}_build_debug
 
 cmake -DCMAKE_INSTALL_PREFIX=${PWD}/${kernel}_release \
-  -DCMAKE_BUILD_TYPE=Release -H. -B"${kernel}_build_release"
+  -DCMAKE_BUILD_TYPE=Release \
+  -DBUILD_TESTS=OFF \
+  -H. -B"${kernel}_build_release"
 cd ${kernel}_build_release
 make -j${NPROC}
 make install
