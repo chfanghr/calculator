@@ -107,5 +107,11 @@ Check [doc/APIs.md](doc/APIs.md)
 * It's tested that this project can be built and run on Windows in cygwin.
 * Any way, feel free to open an issue, but please post the full detail%)....
 
+## Nightly Build
+* For [Linux](https://circleci.com/api/v1.1/project/github/chfanghr/calculator/latest/artifacts/0//root/project
+/linux_release.zip)<br>
+* For [Windows]([linux_release.zip](https://circleci.com/api/v1.1/project/github/chfanghr/calculator/latest/artifacts/0
+//root/project/windows_release.zip))
+
 ## LICENSE
 MIT, check [LICENSE](LICENSE) for more details.
