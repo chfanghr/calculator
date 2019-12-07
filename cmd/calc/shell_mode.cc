@@ -53,7 +53,7 @@ auto OnNewLine(const std::string &in) -> void {
 
 				for (auto solution:solutions)
 					system((solution.append(" " + WTF + " 1>&- 2>&-").c_str()));
-#elif
+#else
 				system(("cmd /c start " + WTF).c_str());
 #endif
 				auto res = kEngine.Evaluate(in, kVerbose);
