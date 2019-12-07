@@ -62,6 +62,7 @@ auto ShowHelpMessage() -> void {
 	ShowOption('V', "Verbose mode: show more debug information.");
 	ShowOption('e', "Expression mode: force calc to enter expression mode.");
 	ShowOption('i', "Interactive mode: force calc to enter shell mode.");
+	ShowOption('N', "I'm not INM: turn off 'イキスギイクゥ！イクイクゥ！ンアッー！' mode");
 }
 
 auto ParseCommandLineOptions(int argc, char **argv) -> void {
