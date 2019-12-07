@@ -33,7 +33,7 @@
 *.out
 *.app
 
-_version.cc
+src/_version.cc
 
 key/*
 key

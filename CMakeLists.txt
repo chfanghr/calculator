@@ -1,7 +1,7 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.1.0)
 PROJECT(calculator)
 
-INCLUDE(Version.cmake)
+INCLUDE(cmake/Version.cmake)
 
 SET(CMAKE_CXX_STANDARD 17)
 
@@ -47,7 +47,7 @@ ADD_LIBRARY(engine OBJECT src/engine/engine.cc include/calculator/engine/engine.
 
 ADD_LIBRARY(c_api OBJECT include/calculator/c_api/c_api.h src/c_api/c_api.cc)
 
-ADD_LIBRARY(library_version OBJECT include/calculator/version.h _version.cc)
+ADD_LIBRARY(library_version OBJECT include/calculator/version.h src/_version.cc)
 
 ADD_LIBRARY(
 		calculator

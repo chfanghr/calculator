@@ -15,7 +15,7 @@ mkdir win32_build_release
 cd win32_build_release
 
 cmake -DCMAKE_BUILD_TYPE=Release \
-  -DCMAKE_TOOLCHAIN_FILE=../cmake/i686-w64-mingw32.cmake \
+  -DCMAKE_TOOLCHAIN_FILE=../cmake/x86_64-w64-mingw32.cmake \
   -DBUILD_TESTING=OFF \
   -DCMAKE_PREFIX_PATH="${CMAKE_PREFIX_PATH}" ..
 
@@ -27,7 +27,7 @@ mkdir win32_build_debug
 cd win32_build_debug
 
 cmake -DCMAKE_BUILD_TYPE=Debug \
-  -DCMAKE_TOOLCHAIN_FILE=../cmake/i686-w64-mingw32.cmake \
+  -DCMAKE_TOOLCHAIN_FILE=../cmake/x86_64-w64-mingw32.cmake \
   -DBUILD_TESTING=OFF \
   -DCMAKE_PREFIX_PATH="${CMAKE_PREFIX_PATH}" ..
 
