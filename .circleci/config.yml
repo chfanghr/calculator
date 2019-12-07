@@ -21,3 +21,5 @@ jobs:
           path: Linux_build.zip
       - store_artifacts:
           path: Win32_build.zip
+      - store_artifacts:
+          path: win32_release.zip
