@@ -16,7 +16,7 @@ cd win32_build_release
 
 cmake -DCMAKE_BUILD_TYPE=Release \
   -DCMAKE_TOOLCHAIN_FILE=../cmake/i686-w64-mingw32.cmake \
-  -DBUILD_TESTING=OFF \
+  -DBUILD_TESTS=OFF \
   -DCMAKE_PREFIX_PATH="${CMAKE_PREFIX_PATH}" ..
 
 make -j"${NPROCS}"
@@ -28,7 +28,7 @@ cd win32_build_debug
 
 cmake -DCMAKE_BUILD_TYPE=Debug \
   -DCMAKE_TOOLCHAIN_FILE=../cmake/i686-w64-mingw32.cmake \
-  -DBUILD_TESTING=OFF \
+  -DBUILD_TESTS=OFF \
   -DCMAKE_PREFIX_PATH="${CMAKE_PREFIX_PATH}" ..
 
 make -j"${NPROCS}"
