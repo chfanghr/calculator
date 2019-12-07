@@ -3,30 +3,26 @@
 set -e
 
 kernel=$(uname | tr '[:upper:]' '[:lower:]')
+NPROCS=$(nproc 2>/dev/null || sysctl -n hw.ncpu 2>/dev/null || getconf _NPROCESSORS_ONLN 2>/dev/null)
 
 if [ -d "${kernel}_build_debug" ]; then rm -rf ${kernel}_build_debug; fi
 if [ -d "${kernel}_build_debug" ]; then rm -rf ${kernel}_build_debug; fi
 if [ -d "${kernel}_release" ]; then rm -rf ${kernel}_release; fi
 
-cmake -DCMAKE_BUILD_TYPE=Debug -H. -B"${kernel}_build_debug"
-cmake --build "${kernel}_build_debug"
+mkdir ${kernel}_release
 
-cmake -DCMAKE_BUILD_TYPE=Release -H. -B"${kernel}_build_release"
-cmake --build "${kernel}_build_release"
+cmake -DCMAKE_BUILD_TYPE=Debug -H. -B"${kernel}_build_debug"
+cd ${kernel}_build_debug
+make -j${NPROCS}
+cd ..
+
+cmake -DCMAKE_INSTALL_PREFIX=${PWD}/${kernel}_release \
+  -DCMAKE_BUILD_TYPE=Release -H. -B"${kernel}_build_release"
+cd ${kernel}_build_release
+make -j${NPROC}
+make install
+cd ..
 
 zip -r ${kernel}_build.zip ${kernel}_build_debug ${kernel}_build_release
-
-mkdir ${kernel}_release
-cd ${kernel}_release
-
-mkdir bin
-cp ../${kernel}_build_release/cmd/calc/calc ./bin
-
-mkdir lib
-cp ../${kernel}_build_release/libcalculator.a ./lib
-
-cp -r ../include .
-
-cd ..
 
 zip -r ${kernel}_release.zip ${kernel}_release

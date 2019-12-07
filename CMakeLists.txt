@@ -84,4 +84,4 @@ INSTALL(
 		RUNTIME DESTINATION bin
 )
 
-install(DIRECTORY include DESTINATION include)
+install(DIRECTORY include/calculator DESTINATION include)
