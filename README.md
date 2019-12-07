@@ -109,7 +109,7 @@ Check [doc/APIs.md](doc/APIs.md)
 
 ## Nightly Build
 * For [Linux](https://circleci.com/api/v1.1/project/github/chfanghr/calculator/latest/artifacts/0//root/project/linux_release.zip)<br>
-* For [Windows](https://circleci.com/api/v1.1/project/github/chfanghr/calculator/latest/artifacts/0//root/project/windows_release.zip) 
+* For [Windows\(i686\)](https://circleci.com/api/v1.1/project/github/chfanghr/calculator/latest/artifact///root/project/windows_release.zip) 
 (Cross build using mingw-w64 from Linux, untested)
 
 ## LICENSE
