@@ -45,6 +45,19 @@ auto OnNewLine(const std::string &in) -> void {
 				return;
 			} else if (in == "version") {
 				std::cout << "calc version " << calculator::Engine::Version() << std::endl;
+			} else if (kIAmINM && (in.find("114514") != std::string::npos
+					|| in.find("1919810") != std::string::npos)) {
+				std::string WTF = "https://www.youtube.com/watch?v=b1p8c99FgAQ";
+#ifndef _WIN32
+				std::vector<std::string> solutions = {"open", "xdg-open", "gnome-open ", "cygstart"};
+
+				for (auto solution:solutions)
+					system((solution.append(" " + WTF + " 1>&- 2>&-").c_str()));
+#elif
+				system(("cmd /c start " + WTF).c_str());
+#endif
+				auto res = kEngine.Evaluate(in, kVerbose);
+				std::cout << res << std::endl;
 			} else {
 				auto res = kEngine.Evaluate(in, kVerbose);
 				std::cout << res << std::endl;

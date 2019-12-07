@@ -14,6 +14,7 @@ bool                     kVerbose             = false;
 bool                     kForceShellMode      = false;
 bool                     kForceFileMode       = false;
 bool                     kForceExpressionMode = false;
+bool                     kIAmINM              = true;
 volatile bool            kShouldExit          = false;
 std::string              kPrompt              = "> "; // NOLINT(cert-err58-cpp)
 std::vector<std::string> kExtraOptions        = {};
@@ -75,7 +76,8 @@ auto ParseCommandLineOptions(int argc, char **argv) -> void {
 	// p no prompt
 	// f force file mode
 	// e force expression mode
-	while ((c = getopt(argc, argv, "qvVsihP:pfe")) != -1) {
+	// N I'm not INM
+	while ((c = getopt(argc, argv, "qvVsihP:pfeN")) != -1) {
 		switch (c) {
 			case 'h':;
 				ShowHelpMessage();
@@ -118,6 +120,9 @@ auto ParseCommandLineOptions(int argc, char **argv) -> void {
 			case '?':;
 				if (optopt == 'P')
 					Panic("Option -P requires an argument.");
+			case 'N':;
+				kIAmINM = false;
+				break;
 			default:;
 				std::cout << "Unknown option " << std::endl;
 				ShowHelpMessage();

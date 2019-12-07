@@ -16,6 +16,7 @@ extern bool                     kVerbose;
 extern bool                     kForceShellMode;
 extern bool                     kForceFileMode;
 extern bool                     kForceExpressionMode;
+extern bool                     kIAmINM;
 extern volatile bool            kShouldExit;
 extern std::string              kPrompt;
 extern std::vector<std::string> kExtraOptions;
