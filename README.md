@@ -108,8 +108,8 @@ Check [doc/APIs.md](doc/APIs.md)
 * Any way, feel free to open an issue, but please post the full detail%)....
 
 ## Nightly Build
-* For [Linux](https://circleci.com/api/v1.1/project/github/chfanghr/calculator/latest/artifacts/0//root/project/linux_release.zip)<br>
-* For [Windows\(i686\)](https://circleci.com/api/v1.1/project/github/chfanghr/calculator/latest/artifact///root/project/windows_release.zip) 
+* For [Linux](https://circleci.com/api/v1.1/project/github/chfanghr/calculator/latest/artifacts/0/root/project/linux_release.zip)<br>
+* For [Windows\(i686\)](https://circleci.com/api/v1.1/project/github/chfanghr/calculator/latest/artifact/0/root/project/win32_release.zip) 
 (Cross build using mingw-w64 from Linux, untested)
 
 ## LICENSE
