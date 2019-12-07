@@ -5,7 +5,7 @@
 #ifndef CALCULATOR_OPERATORS_FUNCTIONS_FUNCTIONS_H_
 #define CALCULATOR_OPERATORS_FUNCTIONS_FUNCTIONS_H_
 
-#include "src/operators/operators.h"
+#include <calculator/operators/operators.h>
 
 namespace calculator::operators::functions::standard {
 using Operator=Engine::Operator;

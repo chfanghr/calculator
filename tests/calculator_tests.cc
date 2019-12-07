@@ -5,7 +5,7 @@
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "cert-err58-cpp"
 
-#include <calculator.h>
+#include <calculator/calculator.h>
 #include <gtest/gtest.h>
 
 #include <map>

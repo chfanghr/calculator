@@ -5,9 +5,9 @@
 #ifndef CALCULATOR_COMPUTE_UTILS_H_
 #define CALCULATOR_COMPUTE_UTILS_H_
 
-#include "src/engine/engine.h"
-#include "src/compute/token/token.h"
-#include "stack.h"
+#include <calculator/engine/engine.h>
+#include <calculator/compute/token/token.h>
+#include <calculator/compute/stack.h>
 
 namespace calculator::compute::utils {
 auto IsOperand(token::Token tok) noexcept -> bool;

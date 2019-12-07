@@ -2,8 +2,8 @@
 // Created by 方泓睿 on 2019/12/3.
 //
 
-#include "src/engine/engine.h"
-#include "operators.h"
+#include "calculator/engine/engine.h"
+#include "calculator/operators/operators.h"
 
 namespace calculator {
 auto Engine::RegisterStandardOperators() noexcept -> void {

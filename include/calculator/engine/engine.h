@@ -5,9 +5,9 @@
 #ifndef CALCULATOR__ENGINE_H_
 #define CALCULATOR__ENGINE_H_
 
-#include "src/compute/token/token.h"
-#include "src/compute/stack.h"
-#include "src/version.h"
+#include <calculator/compute/token/token.h>
+#include <calculator/compute/stack.h>
+#include <calculator/version.h>
 
 #include <cstdint>
 #include <string>

@@ -5,7 +5,6 @@
 
 #include "calc.h"
 
-#include <calculator.h>
 #include <getopt.h>
 #include <iostream>
 

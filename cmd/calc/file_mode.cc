@@ -4,8 +4,6 @@
 
 #include "calc.h"
 
-#include <calculator.h>
-
 #include <fstream>
 #include <stdexcept>
 #include <iostream>

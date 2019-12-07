@@ -37,7 +37,8 @@ char *Version();
 #endif
 
 #ifdef __cplusplus
-#include "src/engine/engine.h"
+
+#include <calculator/engine/engine.h>
 
 auto GetEngine(Engine *engine) -> calculator::Engine &;
 #endif

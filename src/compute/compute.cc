@@ -2,8 +2,8 @@
 // Created by 方泓睿 on 2019/12/2.
 //
 
-#include "utils.h"
-#include "stack.h"
+#include "calculator/compute/utils.h"
+#include "calculator/compute/stack.h"
 
 #include <iostream>
 

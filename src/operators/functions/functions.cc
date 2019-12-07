@@ -2,7 +2,7 @@
 // Created by 方泓睿 on 2019/12/1.
 //
 
-#include "functions.h"
+#include "calculator/operators/functions/functions.h"
 
 namespace calculator {
 auto Engine::RegisterStandardFunctions() noexcept -> void {

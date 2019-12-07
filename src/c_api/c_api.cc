@@ -2,8 +2,8 @@
 // Created by 方泓睿 on 2019/12/3.
 //
 
-#include "src/engine/engine.h"
-#include "c_api.h"
+#include "calculator/engine/engine.h"
+#include "calculator/c_api/c_api.h"
 
 #include <cmath>
 #include <stdexcept>

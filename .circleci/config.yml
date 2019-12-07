@@ -18,8 +18,10 @@ jobs:
       - run: 'printf "\n1+1\n6676767\ncos(pi)" > input && $(uname)_build_debug/cmd/calc/calc < input && rm input'
       - run: 'scripts/win32_build.sh'
       - store_artifacts:
-          path: Linux_build.zip
+          path: linux_build.zip
       - store_artifacts:
-          path: Win32_build.zip
+          path: win32_build.zip
       - store_artifacts:
           path: win32_release.zip
+      - store_artifacts:
+          path: linux_release.zip

@@ -5,7 +5,7 @@
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "cert-err58-cpp"
 
-#include "functions.h"
+#include "calculator/operators/functions/functions.h"
 
 #include <cmath>
 #include <functional>

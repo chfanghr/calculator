@@ -5,7 +5,7 @@
 #ifndef CALCULATOR_CMD_CALC_CALC_H_
 #define CALCULATOR_CMD_CALC_CALC_H_
 
-#include <calculator.h>
+#include <calculator/calculator.h>
 
 #include <string>
 #include <vector>

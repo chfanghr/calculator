@@ -2,7 +2,7 @@
 // Created by 方泓睿 on 2019/12/5.
 //
 
-#include <calculator.h>
+#include <calculator/calculator.h>
 
 #include <stdio.h>
 #include <stdlib.h>
