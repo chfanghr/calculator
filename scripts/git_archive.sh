@@ -1,0 +1,1 @@
+git archive -o git_archive.zip HEAD 

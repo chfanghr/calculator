@@ -12,6 +12,7 @@ jobs:
       - run: 'scripts/install_gtest.sh'
       - run: 'scripts/native_build.sh'
       - run: 'scripts/win32_build.sh'
+      - run: 'scripts/git_archive.sh'
       - run: 'linux_build_debug/tests/*tests'
       - run: 'linux_build_debug/examples/version'
       - run: 'linux_build_debug/examples/simple'
@@ -25,3 +26,5 @@ jobs:
           path: win32_release.zip
       - store_artifacts:
           path: linux_release.zip
+      - store_artifacts:
+          path: git_archive.zip
